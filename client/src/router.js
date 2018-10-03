@@ -1,14 +1,18 @@
 import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 import NavBar from './nav-bar.js';
+import HomeScreen from './home-screen';
 import DetailsScreen from './details-screen.js';
 import ContributeScreen from './contribute-screen.js';
 
 let Router = () =>
-    <div className="router">
-        <NavBar/>
-        <Route exact path="/" component={ContributeScreen} />
-        <Route exact path="/details/:id" component={DetailsScreen} />
-    </div>
+    <HashRouter>
+        <div className="router">
+            <NavBar/>
+            <Route exact path="/" component={HomeScreen} />
+            <Route exact path="/details/:id" component={DetailsScreen} />
+            <Route exact path="/contribute" component={ContributeScreen} />
+        </div>
+    </HashRouter>
 
 export default Router;
