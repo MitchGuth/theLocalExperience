@@ -1,9 +1,16 @@
 import React from 'react';
 import ContributeForm from './contribute-form.js';
+import { connect } from 'react-redux';
 
-let ContributeScreen = () => 
+let ContributeScreen = (props) => 
     <div>
-        <ContributeForm />
+        <ContributeForm {...props}/>
     </div>
 
-export default ContributeScreen;
+let ConnectedContributeScreen = connect(state=> {
+    return {
+        descriptionInput: state.descriptionInput
+    }
+})(ContributeScreen);
+
+export default ConnectedContributeScreen;

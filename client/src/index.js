@@ -5,15 +5,13 @@ import * as serviceWorker from './serviceWorker';
 import Router from './router.js';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import reducer from './reducer.js';
 
 let initialState = {
     fileInput: '',
-    descriptionInput: ''
+    descriptionInput: '',
+    contributeDescription: ''
 };
-
-let reducer = (oldState, action) => {
-    return {...oldState};
-}
 
 let store = createStore(
     reducer,
