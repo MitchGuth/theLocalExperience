@@ -4,10 +4,15 @@ import postContribute from './postContribute';
 let ContributeForm = (props) =>
     <form onSubmit={ (event) => {
         event.preventDefault();
+        let photoUrl = ''
         props.dispatch({type: 'SET_CONTRIBUTE', selectedFile: props.fileInput, contributeDescription: props.descriptionInput})
         let formData = new FormData();
         formData.append('selectedFile', props.fileInput);
-        postContribute(formData);    
+        postContribute(formData)
+            .then(name=> {
+                photoUrl = `/uploads/${name}`;
+                return photoUrl;
+            })
         }}
         className="contribute-form"
         props={props.props}
