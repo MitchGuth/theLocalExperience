@@ -10,6 +10,7 @@ import reducer from './reducer.js';
 let initialState = {
     fileInput: '',
     descriptionInput: '',
+    selectedFile: '',
     contributeDescription: ''
 };
 

@@ -5,9 +5,15 @@ let reducer = (oldState, action) => {
             ...oldState,
             descriptionInput: action.descriptionInput
         }
-    } else if (action.type === 'SET_CONTRIBUTE_DESCRIPTION') {
+    } else if (action.type === 'UPDATE_FILEINPUT_INPUT') {
         return {
             ...oldState,
+            fileInput: action.fileInput
+        }
+    } else if (action.type === 'SET_CONTRIBUTE') {
+        return {
+            ...oldState,
+            selectedFile: action.selectedFile,
             contributeDescription: action.contributeDescription
         }
     } else {

@@ -3,12 +3,18 @@ import React from 'react';
 let ContributeForm = (props) =>
     <form onSubmit={ (event) => {
         event.preventDefault();
-        props.dispatch({type: 'SET_CONTRIBUTE_DESCRIPTION', contributeDescription: props.descriptionInput})
+        props.dispatch({type: 'SET_CONTRIBUTE', selectedFile: props.fileInput, contributeDescription: props.descriptionInput})
         }}
         className="contribute-form"
         props={props.props}
         >
-        <input className="contribute-choose-file-button" type="file" />
+        <input 
+            onChange={ (event) => {
+                props.dispatch({type: 'UPDATE_FILEINPUT_INPUT', fileInput: event.target.files[0]})
+            }}
+            className="contribute-choose-file-button" 
+            type="file"
+        />
         <input 
             onChange={ (event) => {
                 let value = event.target.value;
@@ -19,7 +25,7 @@ let ContributeForm = (props) =>
             type="text" 
             placeholder="description" 
             value={props.descriptionInput}
-            />
+        />
         <input className="contribute-submit-button" type="submit" value="Submit" />
     </form>
 
