@@ -9,7 +9,8 @@ let ContributeScreen = (props) =>
 
 let ConnectedContributeScreen = connect(state=> {
     return {
-        descriptionInput: state.descriptionInput
+        fileInput: state.fileInput,
+        descriptionInput: state.descriptionInput,
     }
 })(ContributeScreen);
 
