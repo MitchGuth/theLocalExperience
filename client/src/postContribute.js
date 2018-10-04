@@ -1,14 +1,13 @@
 let postContribute = (formData) => {
-    console.log(formData);
-    fetch('http://localhost:5000/api/postcontribute', {
+    return fetch('http://localhost:5000/api/postcontribute', {
         method: 'POST',
         body: formData
     })
         .then(results => {
-            return results
+            return results.text()
         })
         .then(message=> {
-            console.log('Posted')
+            return message;
         })
 }
 
