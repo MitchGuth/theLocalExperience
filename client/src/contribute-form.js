@@ -1,9 +1,13 @@
 import React from 'react';
+import postContribute from './postContribute';
 
 let ContributeForm = (props) =>
     <form onSubmit={ (event) => {
         event.preventDefault();
         props.dispatch({type: 'SET_CONTRIBUTE', selectedFile: props.fileInput, contributeDescription: props.descriptionInput})
+        let formData = new FormData();
+        formData.append('selectedFile', props.fileInput);
+        postContribute(formData);    
         }}
         className="contribute-form"
         props={props.props}
