@@ -3,6 +3,7 @@ import React from 'react';
 let ContributeForm = (props) =>
     <form onSubmit={ (event) => {
         event.preventDefault();
+        props.dispatch({type: 'SET_CONTRIBUTE_DESCRIPTION', contributeDescription: props.descriptionInput})
         }}
         className="contribute-form"
         props={props.props}
