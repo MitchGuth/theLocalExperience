@@ -29,7 +29,7 @@ let allowCORS = (req, res, next) => {
 
 const static = express.static;
 
-app.use(static('../client/'))
+app.use(static('../client/build'))
 app.use(allowCORS);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
