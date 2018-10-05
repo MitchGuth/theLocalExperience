@@ -1,5 +1,5 @@
 let postContribute = (formData) => {
-    return fetch('http://localhost:5000/api/postcontribute', {
+    return fetch(`${process.env.REACT_APP_API_HOST}/api/postcontribute`, {
         method: 'POST',
         body: formData
     })

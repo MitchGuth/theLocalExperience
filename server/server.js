@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const uuidv4 = require('uuid/v4');
 const path = require('path');
+const dotenv = require('dotenv');
+dotenv.config();
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
