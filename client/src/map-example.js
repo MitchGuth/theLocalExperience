@@ -6,7 +6,7 @@ class Map extends Component {
         this.renderMap()
     }
     renderMap = () =>{
-        loadScript("https://maps.googleapis.com/maps/api/js?key={apiKey}&callback=initMap")
+        loadScript(`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_MAP_API}&callback=initMap`)
         window.initMap = this.initMap
     }
     initMap = () =>{
