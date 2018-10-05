@@ -3,7 +3,7 @@ import ContributeForm from './contribute-form.js';
 import { connect } from 'react-redux';
 
 let ContributeScreen = (props) => 
-    <div>
+    <div className="contribute-screen">
         <ContributeForm {...props}/>
     </div>
 
