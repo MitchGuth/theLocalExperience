@@ -4,10 +4,21 @@ import postContribute from './postContribute';
 let ContributeForm = (props) =>
     <form onSubmit={ (event) => {
         event.preventDefault();
-        let photoUrl = ''
-        props.dispatch({type: 'SET_CONTRIBUTE', selectedFile: props.fileInput, contributeDescription: props.descriptionInput})
+        let photoUrl = '';
         let formData = new FormData();
+        let date = new Date();
+        let time = date.toLocaleTimeString('en-US');
+        console.log(time);
+        props.dispatch({type: 'SET_CONTRIBUTE', selectedFile: props.fileInput, contributeDescription: props.descriptionInput});
         formData.append('selectedFile', props.fileInput);
+        navigator.geolocation.getCurrentPosition(function(position) {
+            console.log(position.coords.latitude, position.coords.longitude);
+            let userLocationLatitude = (position.coords.latitude);
+            let userLocationLongitude = (position.coords.longitude);
+            console.log(userLocationLatitude);
+            console.log(userLocationLongitude);
+            // console.log(userLocation);
+        })
         postContribute(formData)
             .then(name=> {
                 photoUrl = `/uploads/${name}`;
