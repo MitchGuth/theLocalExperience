@@ -1,9 +1,9 @@
 import React from 'react';
+import MapContainer from './example-map-containter.js';
 
 let MapRow = () =>
     <div>
-        Map
+        <MapContainer />
     </div>
-
 
 export default MapRow;
