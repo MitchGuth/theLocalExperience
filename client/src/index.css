@@ -16,3 +16,24 @@ code {
 #map{
   height: 400px;
 }
+.contribute-screen{
+  height: 100%;
+  width: 100%;
+}
+.contribute-form{
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-item{
+  margin:1em;
+}
+
+.contribute-description-input{
+  height: 8em;
+  width: 14em;
+}
+
