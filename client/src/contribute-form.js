@@ -12,12 +12,10 @@ let ContributeForm = (props) =>
         props.dispatch({type: 'SET_CONTRIBUTE', selectedFile: props.fileInput, contributeDescription: props.descriptionInput});
         formData.append('selectedFile', props.fileInput);
         navigator.geolocation.getCurrentPosition(function(position) {
-            console.log(position.coords.latitude, position.coords.longitude);
             let userLocationLatitude = (position.coords.latitude);
             let userLocationLongitude = (position.coords.longitude);
             console.log(userLocationLatitude);
             console.log(userLocationLongitude);
-            // console.log(userLocation);
         })
         postContribute(formData)
             .then(name=> {
