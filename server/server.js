@@ -6,6 +6,9 @@ const uuidv4 = require('uuid/v4');
 const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
+const pg = require('pg-promise')();
+const dbConfig = 'postgres://brandonhumphries@localhost:5432/the-local-experience';
+const db = pg(dbConfig);
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -20,8 +23,12 @@ let storage = multer.diskStorage({
 const upload = multer({ storage });
 
 let postContribute = (req, res) => {
-    console.log(req.body);
-    res.send('received');
+    db.query(`INSERT INTO 
+                contributions (latitude, longitude, title, description, tags, userId, photoUrl, time)
+                VALUES ('${req.body.latitude}', '${req.body.longitude}', 'title', '${req.body.description}', 'tags', 'userId', '${req.body.photoUrl}', '${req.body.time}')`)
+    .then(results=> {
+        res.send('received');
+    })
 };
 
 let allowCORS = (req, res, next) => {
