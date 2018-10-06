@@ -1,27 +1,28 @@
 import React from 'react';
-import postContribute from './postContribute';
+import postContributePhoto from './postContributePhoto';
 
 let ContributeForm = (props) =>
     <div className="contribute-container">
-        <form onSubmit={ (event) => {
-            event.preventDefault();
-            let photoUrl = '';
-            let formData = new FormData();
-            let date = new Date();
-            let time = date.toLocaleTimeString('en-US');
-            console.log(time);
-            props.dispatch({type: 'SET_CONTRIBUTE', selectedFile: props.fileInput, contributeDescription: props.descriptionInput});
-            formData.append('selectedFile', props.fileInput);
-            navigator.geolocation.getCurrentPosition(function(position) {
-                let userLocationLatitude = (position.coords.latitude);
-                let userLocationLongitude = (position.coords.longitude);
-                console.log(userLocationLatitude);
-                console.log(userLocationLongitude);
-            })
-            postContribute(formData)
-                .then(name=> {
-                    photoUrl = `/uploads/${name}`;
-                    return photoUrl;
+        <form 
+            onSubmit={ (event) => {
+                event.preventDefault();
+                let photoUrl = '';
+                let formData = new FormData();
+                let date = new Date();
+                let time = date.toLocaleTimeString('en-US');
+                console.log(time);
+                props.dispatch({type: 'SET_CONTRIBUTE', selectedFile: props.fileInput, contributeDescription: props.descriptionInput});
+                formData.append('selectedFile', props.fileInput);
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    let userLocationLatitude = (position.coords.latitude);
+                    let userLocationLongitude = (position.coords.longitude);
+                    console.log(userLocationLatitude);
+                    console.log(userLocationLongitude);
+                    postContributePhoto(formData)
+                    .then(name=> {
+                        photoUrl = `/uploads/${name}`;
+                        return photoUrl;
+                    })
                 })
             }}
             className="contribute-form"

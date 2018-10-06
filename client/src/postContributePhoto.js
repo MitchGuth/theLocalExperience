@@ -1,5 +1,5 @@
-let postContribute = (formData) => {
-    return fetch(`${process.env.REACT_APP_API_HOST}/api/postcontribute`, {
+let postContributePhoto = (formData) => {
+    return fetch(`${process.env.REACT_APP_API_HOST}/api/postcontributephoto`, {
         method: 'POST',
         body: formData
     })
@@ -11,4 +11,4 @@ let postContribute = (formData) => {
         })
 }
 
-export default postContribute;
+export default postContributePhoto;
