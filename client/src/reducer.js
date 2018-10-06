@@ -1,6 +1,10 @@
 let reducer = (oldState, action) => {
-    if (action.type === 'UPDATE_DESCRIPTION_INPUT') {
-        console.log(oldState);
+    if (action.type === 'UPDATE_TITLE_INPUT') {
+        return {
+            ...oldState,
+            titleInput: action.titleInput
+        }
+    } else if (action.type === 'UPDATE_DESCRIPTION_INPUT') {
         return {
             ...oldState,
             descriptionInput: action.descriptionInput

@@ -25,7 +25,7 @@ const upload = multer({ storage });
 let postContribute = (req, res) => {
     db.query(`INSERT INTO 
                 contributions (latitude, longitude, title, description, tags, userId, photoUrl, time)
-                VALUES ('${req.body.latitude}', '${req.body.longitude}', 'title', '${req.body.description}', 'tags', 'userId', '${req.body.photoUrl}', '${req.body.time}')`)
+                VALUES ('${req.body.latitude}', '${req.body.longitude}', '${req.body.title}', '${req.body.description}', 'tags', 'userId', '${req.body.photoUrl}', '${req.body.time}')`)
     .then(results=> {
         res.send('received');
     })

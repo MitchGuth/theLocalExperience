@@ -9,8 +9,10 @@ import reducer from './reducer.js';
 
 let initialState = {
     fileInput: '',
+    titleInput: '',
     descriptionInput: '',
     selectedFile: '',
+    contributeTitle: '',
     contributeDescription: ''
 };
 

@@ -25,8 +25,9 @@ let ContributeForm = (props) =>
                         let contributeInformation = {
                             latitude: userLocationLatitude,
                             longitude: userLocationLongitude,
-                            photoUrl: photoUrl, 
-                            description: props.descriptionInput, 
+                            title: props.titleInput,
+                            description: props.descriptionInput,
+                            photoUrl: photoUrl,  
                             time: time
                         };
                         postContribute(contributeInformation);
@@ -43,6 +44,17 @@ let ContributeForm = (props) =>
                 className="contribute-choose-file-button form-item" 
                 type="file"
             />
+            <p>Title</p>
+            <textarea
+                onChange={ (event) => {
+                    let value = event.target.value;
+                    props.dispatch({type: 'UPDATE_TITLE_INPUT', titleInput: value})
+                }}
+                className="contribute-title-input form-item"
+                placeholder="title"
+                value={props.titleInput}
+            />
+            <p>Description</p>
             <textarea 
                 onChange={ (event) => {
                     let value = event.target.value;
