@@ -1,11 +1,12 @@
 CREATE TABLE contributions(
     postId SERIAL PRIMARY KEY NOT NULL
-    coordinates
+    latitude
+    longitude
+    title TEXT
     description TEXT
     tags TEXT
     userId
     photoUrl TEXT NOT NULL
-    date
     time
 );
 

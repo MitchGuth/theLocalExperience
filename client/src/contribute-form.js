@@ -1,5 +1,6 @@
 import React from 'react';
 import postContributePhoto from './postContributePhoto';
+import postContribute from './postContribute';
 
 let ContributeForm = (props) =>
     <div className="contribute-container">
@@ -21,7 +22,14 @@ let ContributeForm = (props) =>
                     postContributePhoto(formData)
                     .then(name=> {
                         photoUrl = `/uploads/${name}`;
-                        return photoUrl;
+                        let contributeInformation = {
+                            latitude: userLocationLatitude,
+                            longitude: userLocationLongitude,
+                            photoUrl: photoUrl, 
+                            description: props.descriptionInput, 
+                            time: time
+                        };
+                        postContribute(contributeInformation);
                     })
                 })
             }}

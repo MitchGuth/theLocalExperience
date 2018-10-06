@@ -19,6 +19,11 @@ let storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+let postContribute = (req, res) => {
+    console.log(req.body);
+    res.send('received');
+};
+
 let allowCORS = (req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
@@ -36,5 +41,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/api/postcontributephoto', upload.single('selectedFile'), (req, res)=> {
     res.send(req.file.filename)
 });
+app.post('/api/postcontribute', postContribute);
 
 app.listen(5000);
