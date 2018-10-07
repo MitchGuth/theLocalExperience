@@ -1,12 +1,13 @@
 CREATE TABLE contributions(
-    postId SERIAL PRIMARY KEY NOT NULL
-    coordinates
-    description TEXT
-    tags TEXT
-    userId
-    photoUrl TEXT NOT NULL
-    date
-    time
+    postId SERIAL PRIMARY KEY NOT NULL,
+    latitude TEXT,
+    longitude TEXT,
+    title TEXT,
+    description TEXT,
+    tags TEXT,
+    userId TEXT,
+    photoUrl TEXT NOT NULL,
+    time TEXT
 );
 
 CREATE TABLE users(
