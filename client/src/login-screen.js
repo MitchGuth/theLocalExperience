@@ -1,7 +1,6 @@
 import React from 'react';
 import LoginForm from './login-form';
 import { connect } from 'react-redux';
-import SignupScreen from './signup-screen';
 import { NavLink } from 'react-router-dom';
 
 let LoginScreen = (props) => 
