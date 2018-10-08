@@ -1,8 +1,14 @@
 import React from 'react';
 import UserAuthenticationInput from './user-authentication-input';
+import signupUser from './signupUser';
 
 let SignupForm = (props) => 
-    <form>
+    <form
+        onSubmit={ () => {
+            props.dispatch({type: 'SET_USEREMAIL', userEmail: props.signupEmailInput});
+            signupUser(props);
+        }}
+    >
         <h3>Name</h3>
         <UserAuthenticationInput 
             type="text"

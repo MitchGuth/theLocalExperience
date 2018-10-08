@@ -46,6 +46,17 @@ let checkUser = (req, res) => {
     })
 };
 
+let signupUser = (req, res) => {
+    let credentials = req.body;
+    console.log(credentials);
+    db.query(`INSERT INTO
+                users (email, password, name)
+                VALUES ('${credentials.signupEmailInput}', '${credentials.signupPasswordInput}', '${credentials.signupNameInput}')`)
+    .then(user=> {
+        console.log(user);
+    })
+}
+
 let postContribute = (req, res) => {
     db.query(`INSERT INTO 
                 contributions (latitude, longitude, title, description, tags, userId, photoUrl, time)
@@ -71,6 +82,7 @@ app.use(allowCORS);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/api/login', checkUser);
+app.post('/api/signup', signupUser);
 app.post('/api/postcontributephoto', upload.single('selectedFile'), (req, res)=> {
     res.send(req.file.filename)
 });
