@@ -11,8 +11,8 @@ CREATE TABLE contributions(
 );
 
 CREATE TABLE users(
-    userId SERIAL PRIMARY KEY NOT NULL
-    email TEXT NOT NULL
-    password TEXT NOT NULL
-    name
+    userId SERIAL PRIMARY KEY NOT NULL,
+    email TEXT NOT NULL,
+    password TEXT NOT NULL,
+    name TEXT NOT NULL
 );
