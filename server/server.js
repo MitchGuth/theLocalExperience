@@ -9,6 +9,8 @@ dotenv.config();
 const pg = require('pg-promise')();
 const dbConfig = 'postgres://brandonhumphries@localhost:5432/the-local-experience';
 const db = pg(dbConfig);
+const jwt = require('jsonwebtoken');
+const { signature } = require('./variables');
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -21,6 +23,28 @@ let storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+
+let createToken = user => 
+    jwt.sign(
+        { userId: user.id },
+        signature,
+        { expiresIn: '7d' }
+);
+
+let checkUser = (req, res) => {
+    let credentials = req.body;
+    db.one(`SELECT * FROM users WHERE users.email = '${credentials.loginEmailInput}'`)
+    .then(user=> {
+        if (user.email === credentials.loginEmailInput && user.password === credentials.loginPasswordInput) {
+            console.log('correct');
+            let token = createToken(user);
+            let userInformation = {token, user}
+            res.send(JSON.stringify(userInformation));
+        } else {
+            res.send('Wrong Password');
+        }
+    })
+};
 
 let postContribute = (req, res) => {
     db.query(`INSERT INTO 
@@ -45,6 +69,7 @@ app.use(static('../client/build'))
 app.use(allowCORS);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.post('/api/login', checkUser);
 app.post('/api/postcontributephoto', upload.single('selectedFile'), (req, res)=> {
     res.send(req.file.filename)
 });
