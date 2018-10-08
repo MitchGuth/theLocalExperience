@@ -1,6 +1,7 @@
 import React from 'react';
 import UserAuthenticationInput from './user-authentication-input';
 import loginUser from './loginUser';
+import clearUserInput from './clearUserInput';
 
 let LoginForm = (props) =>
     <form
@@ -11,6 +12,7 @@ let LoginForm = (props) =>
             //     password: props.loginPasswordInput
             // };
             loginUser(props);
+            clearUserInput(props, 'LOGIN');
         }}
     >
         <h3>Email</h3>

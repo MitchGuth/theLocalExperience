@@ -30,6 +30,12 @@ let reducer = (oldState, action) => {
             ...oldState,
             userEmail: action.userEmail
         }
+    } else if (action.type === 'CLEAR_LOGIN_INPUT') {
+        return {
+            ...oldState,
+            loginEmailInput: '',
+            loginPasswordInput: ''
+        }
     } else {
         return {
             ...oldState
