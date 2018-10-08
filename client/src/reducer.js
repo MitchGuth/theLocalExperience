@@ -20,6 +20,16 @@ let reducer = (oldState, action) => {
             selectedFile: action.selectedFile,
             contributeDescription: action.contributeDescription
         }
+    } else if (action.type === 'SET_CREDENTIAL_INPUT') {
+        return {
+            ...oldState,
+            [action.stateName]: action.userInput
+        }
+    } else if (action.type === 'SET_USEREMAIL') {
+        return {
+            ...oldState,
+            userEmail: action.userEmail
+        }
     } else {
         return {
             ...oldState

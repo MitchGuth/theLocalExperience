@@ -8,6 +8,9 @@ import { Provider } from 'react-redux';
 import reducer from './reducer.js';
 
 let initialState = {
+    loginEmailInput: '',
+    loginPasswordInput: '',
+    userEmail: '',
     fileInput: '',
     titleInput: '',
     descriptionInput: '',
