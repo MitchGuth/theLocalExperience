@@ -65,7 +65,8 @@ let allowCORS = (req, res, next) => {
 
 const static = express.static;
 
-app.use(static('../client/build'))
+app.use(static('../client/build'));
+app.use('/uploads', static(__dirname + '/uploads'));
 app.use(allowCORS);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
