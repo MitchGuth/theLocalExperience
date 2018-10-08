@@ -1,10 +1,16 @@
 import React from 'react';
 import UserAuthenticationInput from './user-authentication-input';
+import loginUser from './loginUser';
 
 let LoginForm = (props) =>
     <form
         onSubmit={ () => {
             props.dispatch({type: 'SET_USEREMAIL', userEmail: props.loginEmailInput});
+            let userInformation = {
+                email: props.loginEmailInput,
+                password: props.loginPasswordInput
+            };
+            loginUser(userInformation);
         }}
     >
         <h3>Email</h3>

@@ -22,6 +22,15 @@ let storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
+let checkUser = (req, res) => {
+    let credentials = req.body;
+    db.one(`SELECT * FROM users WHERE users.email = ${credentials.email}`)
+    .then(result=> {
+        console.log(result);
+        console.log(credentials);
+    })
+};
+
 let postContribute = (req, res) => {
     db.query(`INSERT INTO 
                 contributions (latitude, longitude, title, description, tags, userId, photoUrl, time)
@@ -45,6 +54,7 @@ app.use(static('../client/build'))
 app.use(allowCORS);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.get('/api/login', checkUser);
 app.post('/api/postcontributephoto', upload.single('selectedFile'), (req, res)=> {
     res.send(req.file.filename)
 });
