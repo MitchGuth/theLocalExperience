@@ -5,6 +5,7 @@ import postContribute from './postContribute';
 let ContributeForm = (props) =>
     <div className="contribute-container">
         <form 
+            encType="multipart/form-data"
             onSubmit={ (event) => {
                 event.preventDefault();
                 let photoUrl = '';
