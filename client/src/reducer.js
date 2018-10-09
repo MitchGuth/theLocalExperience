@@ -36,6 +36,13 @@ let reducer = (oldState, action) => {
             loginEmailInput: '',
             loginPasswordInput: ''
         }
+    } else if (action.type === 'CLEAR_SIGNUP_INPUT') {
+        return {
+            ...oldState,
+            signupNameInput: '',
+            signupEmailInput: '',
+            signupPasswordInput: ''
+        }
     } else {
         return {
             ...oldState
