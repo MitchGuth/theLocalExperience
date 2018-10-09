@@ -33,10 +33,9 @@ let createToken = user =>
 
 let checkUser = (req, res) => {
     let credentials = req.body;
-    db.one(`SELECT * FROM users WHERE users.email = '${credentials.loginEmailInput}'`)
+    db.one(`SELECT * FROM users WHERE users.email = '${credentials.email}'`)
     .then(user=> {
-        if (user.email === credentials.loginEmailInput && user.password === credentials.loginPasswordInput) {
-            console.log('correct');
+        if (user.email === credentials.email && user.password === credentials.password) {
             let token = createToken(user);
             let userInformation = {token, user}
             res.send(JSON.stringify(userInformation));
@@ -46,16 +45,24 @@ let checkUser = (req, res) => {
     })
 };
 
-let signupUser = (req, res) => {
+let signupUser = async (req, res) => {
     let credentials = req.body;
-    console.log(credentials);
-    db.query(`INSERT INTO
+    try { 
+        let user = await db.query(`INSERT INTO
                 users (email, password, name)
                 VALUES ('${credentials.signupEmailInput}', '${credentials.signupPasswordInput}', '${credentials.signupNameInput}')`)
-    .then(user=> {
-        console.log(user);
-    })
-}
+        .then(user=> {
+            let userInformation = {
+                email: credentials.signupEmailInput,
+                password: credentials.signupPasswordInput
+            };
+            res.send(JSON.stringify(userInformation));
+        })
+    } catch(err) {
+        console.log(err);
+        res.send(JSON.stringify('Email already taken'));
+    }
+};
 
 let postContribute = (req, res) => {
     db.query(`INSERT INTO 
