@@ -6,11 +6,12 @@ const uuidv4 = require('uuid/v4');
 const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
+const { signature, name } = require('./variables');
 const pg = require('pg-promise')();
-const dbConfig = 'postgres://brandonhumphries@localhost:5432/the-local-experience';
+const dbConfig = name;
 const db = pg(dbConfig);
 const jwt = require('jsonwebtoken');
-const { signature } = require('./variables');
+
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -42,6 +43,14 @@ let checkUser = (req, res) => {
         } else {
             res.send('Wrong Password');
         }
+    })
+};
+
+let getExperiences = (req, res) => {
+    console.log(req);
+    db.query(`SELECT * FROM contributions`)
+    .then(results=> {
+        res.send(JSON.stringify(results))
     })
 };
 
@@ -88,6 +97,7 @@ app.use('/uploads', static(__dirname + '/uploads'));
 app.use(allowCORS);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.get('/api/getexperiences', getExperiences);
 app.post('/api/login', checkUser);
 app.post('/api/signup', signupUser);
 app.post('/api/postcontributephoto', upload.single('selectedFile'), (req, res)=> {
