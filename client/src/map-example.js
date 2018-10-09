@@ -1,6 +1,5 @@
 import React,{ Component } from 'react';
 import './index.css';
-import { Marker } from 'react-google-maps';
 
 class Map extends Component {
     componentDidMount(){
@@ -17,7 +16,7 @@ class Map extends Component {
             zoom: 10
         })
         let marker = new window.google.maps.Marker({
-            position: {lat: 33.7530, lng: -84.3636},
+            position: krogStreet,
             map: map,
             title: 'Krog Sreet Tunnel'
         })
