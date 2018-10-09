@@ -1,12 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DetailRow from './detail-row';
+import MapRow from './map-row.js';
 
 let DetailsScreen = (props) => {
     console.log(props);
     return <div>
-        <DetailRow experience={props.experiencesArray.find(experience=>
-            (props.match.url === `/details/${experience.postid}`))} />
+        <div className="info-section-details-screen" >
+            <DetailRow 
+                experience={props.experiencesArray.find(experience=>
+                (props.match.url === `/details/${experience.postid}`))} 
+            />
+        </div>
+        <div className="map-section-details-screen">
+            <MapRow />
+        </div>
     </div>
 }
 
