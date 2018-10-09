@@ -1,9 +1,15 @@
 import React from 'react';
+import MapRow from './map-row.js';
 
 let DetailsScreen = () => 
     <div>
-        <p>Photo</p>
-        <p>Description</p>
+        <div className="info-section-details-screen">
+            <p>Photo</p>
+            <p>Description</p>
+        </div>
+        <div className="map-section-details-screen">
+            <MapRow />
+        </div>
     </div>
 
 
