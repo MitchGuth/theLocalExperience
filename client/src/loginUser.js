@@ -1,7 +1,7 @@
-let loginUser = (props) => {
+let loginUser = (props, userInformation) => {
     fetch(`${process.env.REACT_APP_API_HOST}/api/login`, {
         method: 'POST',
-        body: JSON.stringify(props),
+        body: JSON.stringify(userInformation),
         headers: {'Content-Type': 'application/json'}
     })
     .then(results=> {

@@ -7,11 +7,11 @@ let LoginForm = (props) =>
     <form
         onSubmit={ () => {
             props.dispatch({type: 'SET_USEREMAIL', userEmail: props.loginEmailInput});
-            // let userInformation = {
-            //     email: props.loginEmailInput,
-            //     password: props.loginPasswordInput
-            // };
-            loginUser(props);
+            let userInformation = {
+                email: props.loginEmailInput,
+                password: props.loginPasswordInput
+            };
+            loginUser(props, userInformation);
             clearUserInput(props, 'LOGIN');
         }}
     >

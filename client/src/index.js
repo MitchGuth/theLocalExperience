@@ -10,6 +10,9 @@ import reducer from './reducer.js';
 let initialState = {
     loginEmailInput: '',
     loginPasswordInput: '',
+    signupNameInput: '',
+    signupEmailInput: '',
+    signupPasswordInput: '',
     userEmail: '',
     fileInput: '',
     titleInput: '',
