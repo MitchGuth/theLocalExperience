@@ -19,7 +19,8 @@ let initialState = {
     descriptionInput: '',
     selectedFile: '',
     contributeTitle: '',
-    contributeDescription: ''
+    contributeDescription: '',
+    experiencesArray: []
 };
 
 let store = createStore(

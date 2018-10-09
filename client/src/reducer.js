@@ -43,6 +43,11 @@ let reducer = (oldState, action) => {
             signupEmailInput: '',
             signupPasswordInput: ''
         }
+    } else if (action.type === 'SET_EXPERIENCES_ARRAY') {
+        return {
+            ...oldState,
+            experiencesArray: action.experiencesArray
+        }
     } else {
         return {
             ...oldState
