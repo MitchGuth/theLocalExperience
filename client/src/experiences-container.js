@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ExperienceRow from './experience-row';
 
-let ExperiencesScreen = (props) => 
+let ExperiencesContainer = (props) => 
     <ul>
         {props.experiencesArray.map(experience=>
             <ExperienceRow experience={experience} />
@@ -10,10 +10,10 @@ let ExperiencesScreen = (props) =>
     </ul>
 
 
-let ConnectedExperiencesScreen = connect(state=> {
-    return {
-        experiencesArray: state.experiencesArray
-    }
-})(ExperiencesScreen);
+// let ConnectedExperiencesScreen = connect(state=> {
+//     return {
+//         experiencesArray: state.experiencesArray
+//     }
+// })(ExperiencesScreen);
 
-export default ConnectedExperiencesScreen;
+export default ExperiencesContainer;

@@ -31,7 +31,7 @@ let ContributeForm = (props) =>
                             photoUrl: photoUrl,  
                             time: time
                         };
-                        postContribute(contributeInformation);
+                        postContribute(contributeInformation, props);
                     })
                 })
             }}
