@@ -1,9 +1,9 @@
 import React from 'react';
 import Map from './map-example.js';
 
-let MapRow = () =>
+let MapRow = (props) =>
     <div>
-        <Map />
+        <Map {...props}/>
     </div>
 
 export default MapRow;
