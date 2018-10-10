@@ -2,7 +2,6 @@ import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 import NavBar from './nav-bar.js';
 import HomeScreen from './home-screen';
-import ExperiencesScreen from './experiences-screen';
 import LoginScreen from './login-screen';
 import SignupScreen from './signup-screen';
 import DetailsScreen from './details-screen.js';
@@ -13,7 +12,6 @@ let Router = () =>
         <div className="router">
             <NavBar/>
             <Route exact path="/" component={HomeScreen} />
-            <Route exact path="/experiences" component={ExperiencesScreen} />
             <Route exact path="/login" component={LoginScreen} />
             <Route exact path="/signup" component={SignupScreen} />
             <Route exact path="/details/:id" component={DetailsScreen} />
