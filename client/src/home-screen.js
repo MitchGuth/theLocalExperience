@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 let HomeScreen = (props) =>
     <div>
-        <MapRow {...props}/>
+        <MapRow />
         <PreviewRow />
         <button
             type="button"

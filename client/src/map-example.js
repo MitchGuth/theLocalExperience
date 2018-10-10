@@ -23,9 +23,9 @@ class Map extends Component {
             zoom: 10
         })
         let createMarkers = () =>{
-            for (let i = 0; i < this.experiencesArray.length; i++){
+            for (let i = 0; i < markerPoints.length; i++){
                 let marker = new window.google.maps.Marker({
-                    position: new window.google.maps.LatLng(this.experiencesArray[i].latitude, markerPoints[i].longitude),
+                    position: new window.google.maps.LatLng(markerPoints[i].latitude, markerPoints[i].longitude),
                     map: map
                 })
                 marker.setMap(map);
