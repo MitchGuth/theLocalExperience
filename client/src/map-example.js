@@ -1,6 +1,14 @@
 import React,{ Component } from 'react';
 import './index.css';
 
+let markerPoints = [
+    {title: 'Krog Street Tunnel', latitude: 33.7530, longitude: -84.3636, postId: 1},
+    {title: 'Ponce City Market', latitude: 33.7719, longitude: -84.3665, postId: 2},
+    {title: 'Logan Farm Park', latitude: 34.0693, longitude: -84.6734, postId: 3},
+    {title: 'Lake View Park', latitude: 45.9462, longitude: -86.2364, postId: 4}
+]
+
+
 class Map extends Component {
     componentDidMount(){
         this.renderMap()
@@ -10,38 +18,20 @@ class Map extends Component {
         window.initMap = this.initMap
     }
     initMap = () =>{
-        let krogStreet = {lat: 33.7530, lng: -84.3636}
-        let ponceCity = {lat: 33.7719, lng: -84.3665}
-        let loganFarm = {lat: 34.0693, lng: -84.6734}
-        let lakeView = {lat: 45.9462, lng: -86.2364}
         let map = new window.google.maps.Map(document.getElementById('map'), {
             center: {lat: 33.7490 , lng: -84.3880 },
             zoom: 10
         })
-        let markerKrog = new window.google.maps.Marker({
-            position: krogStreet,
-            map: map,
-            title: 'Krog Sreet Tunnel'
-        })
-        markerKrog.setMap(map);
-        let markerPonce = new window.google.maps.Marker({
-            position: ponceCity, 
-            map: map,
-            title: 'Ponce City Market'
-        })
-        markerPonce.setMap(map);
-        let markerLogan = new window.google.maps.Marker({
-            position: loganFarm, 
-            map: map,
-            title: 'Logan Farm Park'
-        })
-        markerLogan.setMap(map);
-        let markerLake = new window.google.maps.Marker({
-            position: lakeView,
-            map: map, 
-            title: 'Lake View Park'
-        })
-        markerLake.setMap(map);
+        let createMarkers = () =>{
+            for (let i = 0; i < markerPoints.length; i++){
+                let marker = new window.google.maps.Marker({
+                    position: new window.google.maps.LatLng(markerPoints[i].latitude, markerPoints[i].longitude),
+                    map: map
+                })
+                marker.setMap(map);
+            }
+        }
+        createMarkers();
     }
 
     render() {
