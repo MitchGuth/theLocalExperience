@@ -12,6 +12,7 @@ let DetailRow = (props) =>
                 <p className="details-time">{props.experience.time}</p>
                 <h3 className="details-description-header">Description</h3>
                 <p className="details-description">{props.experience.description}</p>
+                <img src={`${process.env.REACT_APP_API_HOST}` + props.experience.photourl} alt={props.experience.title}/>
             </div>
         )}
     </div>
