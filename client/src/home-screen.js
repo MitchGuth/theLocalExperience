@@ -1,13 +1,11 @@
 import React from 'react';
 import MapRow from './map-row';
-import PreviewRow from './preview-row';
 import { connect } from 'react-redux';
 import ExperiencesContainer from './experiences-container';
 
 let HomeScreen = (props) => {
     return <div>
         <MapRow {...props}/>
-        <PreviewRow />
         <ExperiencesContainer {...props}/>
         {/* <button
             type="button"

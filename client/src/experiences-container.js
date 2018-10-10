@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ExperienceRow from './experience-row';
 
 let ExperiencesContainer = (props) => 
-    <ul>
+    <ul className="experience-container">
         {props.experiencesArray.map(experience=>
             <ExperienceRow experience={experience} />
         )}
