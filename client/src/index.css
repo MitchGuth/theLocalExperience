@@ -50,6 +50,8 @@ code {
 
 .experience-navlink {
   display: flex;
+  text-decoration: none;
+  color: black;
 }
 
 .experience-image {
