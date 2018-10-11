@@ -37,3 +37,24 @@ code {
   width: 14em;
 }
 
+.experience-container {
+  margin: 0 0.3em;
+  padding: 0;
+}
+
+.experience-row {
+  list-style: none;
+  margin: 1em 0;
+  border-style: solid;
+}
+
+.experience-navlink {
+  display: flex;
+  text-decoration: none;
+  color: black;
+}
+
+.experience-image {
+  height: 10em;
+  width: 10em;
+}
