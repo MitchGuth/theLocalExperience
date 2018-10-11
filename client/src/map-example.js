@@ -1,7 +1,5 @@
 import React,{ Component } from 'react';
 import './index.css';
-import { NavLink } from 'react-router-dom';
-import ReactDOMServer from 'react-dom/server';
 
 // let markerPoints = [
 //     {title: 'Krog Street Tunnel', latitude: 33.7530, longitude: -84.3636, postId: 1},
