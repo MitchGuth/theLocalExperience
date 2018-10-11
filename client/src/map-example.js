@@ -1,5 +1,7 @@
 import React,{ Component } from 'react';
 import './index.css';
+import { NavLink } from 'react-router-dom';
+import ReactDOMServer from 'react-dom/server';
 
 // let markerPoints = [
 //     {title: 'Krog Street Tunnel', latitude: 33.7530, longitude: -84.3636, postId: 1},
@@ -33,11 +35,14 @@ class Map extends Component {
             center: {lat: 33.7490 , lng: -84.3880 },
             zoom: 10
         })
-        let createMarkers = () =>{
+        let createMarkers = (props) =>{
+            console.log(this.props);
             for (let i = 0; i < this.props.experiencesArray.length; i++){
                 let contentString = '<div id="content" >' +
+                    `<a class="info-window-anchor" href='${`/#/details/${this.props.experiencesArray[i].postid}`}'>` +   
                     `<h3 class="info-window-header">${this.props.experiencesArray[i].title}</h3>` +
-                    `<img class="info-window-image" src=${`${process.env.REACT_APP_API_HOST}` + this.props.experiencesArray[i].photourl} alt=${this.props.experiencesArray[i].title}" />` +
+                    `<img class="info-window-image" src=${`${process.env.REACT_APP_API_HOST}` + this.props.experiencesArray[i].photourl} alt="${this.props.experiencesArray[i].title}" />` +
+                    `</a>` +
                     '</div>';
                 let infoWindow = new window.google.maps.InfoWindow({
                     content: contentString
