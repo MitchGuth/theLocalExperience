@@ -14,7 +14,9 @@ let DetailRow = (props) =>
                 <h3 className="details-description-header">Description</h3>
                 <p className="details-description">{props.experience.description}</p>
                 <img className="details-image" src={`${process.env.REACT_APP_API_HOST}` + props.experience.photourl} alt={props.experience.title}/>
-                <DetailsMap {...props.experience}/>
+                <div className="map-section-details-screen">
+                    <DetailsMap {...props.experience}/>
+                </div>
             </div>
         )}
     </div>
