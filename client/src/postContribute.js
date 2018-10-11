@@ -6,9 +6,11 @@ let postContribute = (contributeInformation, props) => {
         headers: {'Content-Type': 'application/json'}
     })
     .then(response=> {
-        let postId = (response.json());
-        contributeInformation.postId = postId;
-        props.dispatch({type: 'ADD_EXPERIENCE_CONTRIBUTION', newExperience: contributeInformation})
+        let contributionPostSuccessful = (response.json());
+        // console.log(postId);
+        contributeInformation.postId = contributionPostSuccessful.postId;
+        contributeInformation.userContributions = contributionPostSuccessful.newContributionsArray;
+        props.dispatch({type: 'ADD_EXPERIENCE_CONTRIBUTION', newExperience: contributeInformation});
     })
 };
 

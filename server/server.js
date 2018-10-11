@@ -53,12 +53,17 @@ let getExperiences = (req, res) => {
     })
 };
 
+let getUserContributions = (req, res) => {
+    console.log(req.url);
+    // db.query(`SELECT * FROM contributions WHERE userid = ${req.}`)
+}
+
 let signupUser = async (req, res) => {
     let credentials = req.body;
     try { 
         let user = await db.query(`INSERT INTO
-                users (email, password, name)
-                VALUES ('${credentials.signupEmailInput}', '${credentials.signupPasswordInput}', '${credentials.signupNameInput}')`)
+                users (email, password, name, contributions)
+                VALUES ('${credentials.signupEmailInput}', '${credentials.signupPasswordInput}', '${credentials.signupNameInput}', '{}')`)
         .then(user=> {
             let userInformation = {
                 email: credentials.signupEmailInput,
@@ -72,14 +77,37 @@ let signupUser = async (req, res) => {
     }
 };
 
-let postContribute = (req, res) => {
-    db.query(`INSERT INTO 
-                contributions (latitude, longitude, title, description, tags, userId, photoUrl, time)
-                VALUES ('${req.body.latitude}', '${req.body.longitude}', '${req.body.title}', '${req.body.description}', 'tags', 'userId', '${req.body.photoUrl}', '${req.body.time}')
-                RETURNING postid`)
-    .then(results=> {
-        res.send(JSON.stringify(results));
-    })
+let postContribute = async (req, res) => {
+    let contributionId = await db.query(`INSERT INTO 
+                contributions (latitude, longitude, title, description, tags, userid, photourl, time)
+                VALUES ('${req.body.latitude}', '${req.body.longitude}', '${req.body.title}', '${req.body.description}', 'tags', '${req.body.userId}', '${req.body.photoUrl}', '${req.body.time}')
+                RETURNING postid`);
+    let contributionsArray = await db.one(`SELECT contributions FROM users WHERE userid = '${req.body.userId}'`);
+    if (contributionsArray.length === 0) {
+        let newContributionsArray = await db.query(`INSERT INTO 
+            users (contributions)
+            VALUES ('${contributionId[0].postid})
+            WHERE userid = '${req.body.userId}'
+            RETURNING contributions`)
+        let successfulContributionPost = {
+            contributionId: contributionId[0].postid, 
+            newContributionsArray: newContributionsArray[0]
+        };
+        let stringifiedSuccessfulContributionPost = JSON.stringify(successfulContributionPost);
+        res.send(stringifiedSuccessfulContributionPost);
+    } else {
+        let newContributionsArray = await db.query(`UPDATE
+            users
+            SET contributions = array_cat(contributions, '{${contributionId[0].postid}}')
+            WHERE userid = '${req.body.userId}'
+            RETURNING contributions`)
+            let successfulContributionPost = await {
+                contributionId: contributionId[0].postid, 
+                newContributionsArray: newContributionsArray[0]
+            };
+            let stringifiedSuccessfulContributionPost = JSON.stringify(successfulContributionPost);
+            res.send(stringifiedSuccessfulContributionPost);
+    }
 };
 
 let allowCORS = (req, res, next) => {
@@ -98,6 +126,7 @@ app.use(allowCORS);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/api/getexperiences', getExperiences);
+app.get('/api/user/:id/contributions', getUserContributions)
 app.post('/api/login', checkUser);
 app.post('/api/signup', signupUser);
 app.post('/api/postcontributephoto', upload.single('selectedFile'), (req, res)=> {
