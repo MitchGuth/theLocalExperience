@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DetailRow from './detail-row';
 import MapRow from './map-row.js';
+import DetailsMap from './details-map';
 
 let DetailsScreen = (props) => {
     return <div>
@@ -12,7 +13,7 @@ let DetailsScreen = (props) => {
             />
         </div>
         <div className="map-section-details-screen">
-            <MapRow {...props}/>
+            {/* <DetailsMap {...props} /> */}
         </div>
     </div>
 }

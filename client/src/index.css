@@ -16,7 +16,9 @@ code {
 #map{
   height: 400px;
 }
-
+#details-map{
+  height: 400px;
+}
 .info-window-image {
   height: 10em;
   width: 10em;
@@ -63,4 +65,9 @@ code {
 .experience-image {
   height: 10em;
   width: 10em;
+}
+
+.details-image {
+  height: 20em;
+  width: 20em;
 }
