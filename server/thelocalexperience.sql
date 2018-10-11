@@ -1,7 +1,7 @@
 CREATE TABLE contributions(
     postId SERIAL PRIMARY KEY NOT NULL,
-    latitude TEXT,
-    longitude TEXT,
+    latitude NUMERIC,
+    longitude NUMERIC,
     title TEXT,
     description TEXT,
     tags TEXT,
