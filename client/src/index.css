@@ -16,6 +16,12 @@ code {
 #map{
   height: 400px;
 }
+
+.info-window-image {
+  height: 10em;
+  width: 10em;
+}
+
 .contribute-screen{
   height: 100%;
   width: 100%;
