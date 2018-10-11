@@ -34,6 +34,7 @@ class Map extends Component {
             zoom: 10
         })
         let createMarkers = () =>{
+
             for (let i = 0; i < this.props.experiencesArray.length; i++){
                 let marker = new window.google.maps.Marker({
                     position: new window.google.maps.LatLng(this.props.experiencesArray[i].latitude, this.props.experiencesArray[i].longitude),
