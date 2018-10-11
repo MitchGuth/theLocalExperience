@@ -5,7 +5,6 @@ import MapRow from './map-row.js';
 import { NavLink } from 'react-router-dom';
 
 let DetailsScreen = (props) => {
-    console.log(props);
     return <div>
         <div className="info-section-details-screen" >
             <DetailRow 
@@ -14,7 +13,7 @@ let DetailsScreen = (props) => {
             />
         </div>
         <div className="map-section-details-screen">
-            <MapRow />
+            <MapRow {...props}/>
         </div>
         <NavLink to="/experiences"><button>Back to Experiences</button></NavLink>
     </div>

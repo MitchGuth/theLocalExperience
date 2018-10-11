@@ -2,12 +2,14 @@ import React from 'react';
 import MapRow from './map-row';
 import PreviewRow from './preview-row';
 import { connect } from 'react-redux';
+import ExperiencesContainer from './experiences-container';
 
-let HomeScreen = (props) =>
-    <div>
-        <MapRow />
+let HomeScreen = (props) => {
+    return <div>
+        <MapRow {...props}/>
         <PreviewRow />
-        <button
+        <ExperiencesContainer {...props}/>
+        {/* <button
             type="button"
             onClick={ () => {
                 fetch(`${process.env.REACT_APP_API_HOST}/api/getexperiences`)
@@ -21,8 +23,9 @@ let HomeScreen = (props) =>
             }}
         >
             Retrieve
-        </button>
+        </button> */}
     </div>
+};
 
 let ConnectedHomeScreen = connect(state=> {
     return {

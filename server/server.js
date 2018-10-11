@@ -47,7 +47,6 @@ let checkUser = (req, res) => {
 };
 
 let getExperiences = (req, res) => {
-    console.log(req);
     db.query(`SELECT * FROM contributions`)
     .then(results=> {
         res.send(JSON.stringify(results))
@@ -76,9 +75,10 @@ let signupUser = async (req, res) => {
 let postContribute = (req, res) => {
     db.query(`INSERT INTO 
                 contributions (latitude, longitude, title, description, tags, userId, photoUrl, time)
-                VALUES ('${req.body.latitude}', '${req.body.longitude}', '${req.body.title}', '${req.body.description}', 'tags', 'userId', '${req.body.photoUrl}', '${req.body.time}')`)
+                VALUES ('${req.body.latitude}', '${req.body.longitude}', '${req.body.title}', '${req.body.description}', 'tags', 'userId', '${req.body.photoUrl}', '${req.body.time}')
+                RETURNING postid`)
     .then(results=> {
-        res.send('received');
+        res.send(JSON.stringify(results));
     })
 };
 
