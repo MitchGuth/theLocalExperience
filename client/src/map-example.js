@@ -35,9 +35,19 @@ class Map extends Component {
         })
         let createMarkers = () =>{
             for (let i = 0; i < this.props.experiencesArray.length; i++){
+                let contentString = '<div id="content" >' +
+                    `<h3 class="info-window-header">${this.props.experiencesArray[i].title}</h3>` +
+                    `<img class="info-window-image" src=${`${process.env.REACT_APP_API_HOST}` + this.props.experiencesArray[i].photourl} alt=${this.props.experiencesArray[i].title}"` +
+                    '</div>';
+                let infoWindow = new window.google.maps.InfoWindow({
+                    content: contentString
+                });
                 let marker = new window.google.maps.Marker({
                     position: new window.google.maps.LatLng(this.props.experiencesArray[i].latitude, this.props.experiencesArray[i].longitude),
                     map: map
+                })
+                marker.addListener('click', function() {
+                    infoWindow.open(map, marker);
                 })
                 marker.setMap(map);
             }
