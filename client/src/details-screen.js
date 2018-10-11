@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DetailRow from './detail-row';
 import MapRow from './map-row.js';
+import { NavLink } from 'react-router-dom';
 
 let DetailsScreen = (props) => {
     console.log(props);
@@ -15,6 +16,7 @@ let DetailsScreen = (props) => {
         <div className="map-section-details-screen">
             <MapRow />
         </div>
+        <NavLink to="/experiences"><button>Back to Experiences</button></NavLink>
     </div>
 }
 
