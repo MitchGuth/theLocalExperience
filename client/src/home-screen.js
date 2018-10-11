@@ -2,12 +2,10 @@ import React from 'react';
 import MapRow from './map-row';
 import { connect } from 'react-redux';
 import ExperiencesContainer from './experiences-container';
-import GoogleApiWrapper from 'google-maps-react';
 
 let HomeScreen = (props) => {
     return <div>
-        <GoogleApiWrapper {...props} />
-        {/* <MapRow {...props}/> */}
+        <MapRow {...props}/>
         <ExperiencesContainer {...props}/>
         {/* <button
             type="button"
