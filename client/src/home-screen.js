@@ -6,7 +6,7 @@ import ExperiencesContainer from './experiences-container';
 let HomeScreen = (props) => {
     return <div>
         <MapRow {...props}/>
-        <ExperiencesContainer {...props}/>
+        <ExperiencesContainer {...props} experiences={props.experiencesArray}/>
     </div>
 };
 

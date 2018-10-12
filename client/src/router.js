@@ -6,6 +6,7 @@ import LoginScreen from './login-screen';
 import SignupScreen from './signup-screen';
 import DetailsScreen from './details-screen.js';
 import ContributeScreen from './contribute-screen.js';
+import UserContributionsScreen from './user-contributions-screen.js';
 
 let Router = () =>
     <HashRouter>
@@ -16,6 +17,7 @@ let Router = () =>
             <Route exact path="/signup" component={SignupScreen} />
             <Route exact path="/details/:id" component={DetailsScreen} />
             <Route exact path="/contribute" component={ContributeScreen} />
+            <Route exact path="/user/contributions" component={UserContributionsScreen} />
         </div>
     </HashRouter>
 

@@ -14,5 +14,6 @@ CREATE TABLE users(
     userId SERIAL PRIMARY KEY NOT NULL,
     email TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL,
-    name TEXT NOT NULL
+    name TEXT NOT NULL,
+    contributions TEXT[]
 );

@@ -12,6 +12,8 @@ let ConnectedContributeScreen = connect(state=> {
         fileInput: state.fileInput,
         titleInput: state.titleInput,
         descriptionInput: state.descriptionInput,
+        userName: state.userName,
+        userId: state.userId
     }
 })(ContributeScreen);
 

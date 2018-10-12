@@ -57,6 +57,9 @@ class Map extends Component {
         }
         createMarkers();
     }
+    componentDidUpdate() {
+        this.renderMap();
+    }
 
     render() {
         return (

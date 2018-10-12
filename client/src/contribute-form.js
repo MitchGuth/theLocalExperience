@@ -22,8 +22,10 @@ let ContributeForm = (props) =>
                     console.log(userLocationLongitude);
                     postContributePhoto(formData)
                     .then(name=> {
+                        console.log(props);
                         photoUrl = `/uploads/${name}`;
                         let contributeInformation = {
+                            userId: props.userId,
                             latitude: userLocationLatitude,
                             longitude: userLocationLongitude,
                             title: props.titleInput,

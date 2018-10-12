@@ -13,6 +13,14 @@ code {
     monospace;
 }
 
+.nav-bar {
+  margin: 0.75em;
+}
+
+.nav-bar-link {
+  margin: 0 0.75em;
+}
+
 #map{
   height: 400px;
 }
