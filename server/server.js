@@ -109,6 +109,12 @@ let postContribute = async (req, res) => {
                 let stringifiedSuccessfulContributionPost = JSON.stringify(successfulContributionPost);
                 res.send(stringifiedSuccessfulContributionPost);
         }
+    } else {
+        let successfulContributionPost = await {
+            contributionId: contributionId[0].postid
+        };
+        let stringifiedSuccessfulContributionPost = JSON.stringify(successfulContributionPost);
+        res.send(stringifiedSuccessfulContributionPost);
     }
 };
 
