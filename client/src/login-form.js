@@ -5,7 +5,8 @@ import clearUserInput from './clearUserInput';
 
 let LoginForm = (props) =>
     <form
-        onSubmit={ () => {
+        onSubmit={ (event) => {
+            event.preventDefault();
             props.dispatch({type: 'SET_USEREMAIL', userEmail: props.loginEmailInput});
             let userInformation = {
                 email: props.loginEmailInput,

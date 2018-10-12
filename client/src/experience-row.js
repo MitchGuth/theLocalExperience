@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 let ExperienceRow = (props) => {
-    console.log(props.experience.title);
     return <li className="experience-row">
         <NavLink className="experience-navlink" to={`/details/${props.experience.postid}`}>
             <img className="experience-image" src={`${process.env.REACT_APP_API_HOST}` + props.experience.photourl} alt={props.experience.title} />
