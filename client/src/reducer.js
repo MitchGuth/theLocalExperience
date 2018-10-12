@@ -58,8 +58,13 @@ let reducer = (oldState, action) => {
             ],
             userContributions: [
                 ...oldState.userContributions,
-                action.newExperience.userContributions
+                action.newExperience
             ]
+        }
+    } else if (action.type === 'SET_USER_CONTRIBUTIONS') {
+        return {
+            ...oldState,
+            userContributions: action.userContributions
         }
     } else if (action.type === 'SET_USER_INFORMATION') {
         return {

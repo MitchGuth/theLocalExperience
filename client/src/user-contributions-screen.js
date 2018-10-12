@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 let UserContributionsScreen = (props) => {
     console.log(props);
     return <div>
-        <ExperiencesContainer {...props} experiences={Object.values(props.userContributions)}/>
+        <ExperiencesContainer {...props} experiences={props.userContributions}/>
     </div>
 }
 

@@ -53,9 +53,10 @@ let getExperiences = (req, res) => {
     })
 };
 
-let getUserContributions = (req, res) => {
-    console.log(req.url);
-    // db.query(`SELECT * FROM contributions WHERE userid = ${req.}`)
+let getUserContributions = async (req, res) => {
+    console.log(req.params.id);
+    let contributionsArray = await db.query(`SELECT * FROM contributions WHERE userid = '${req.params.id}'`)
+    res.send(JSON.stringify(contributionsArray));
 }
 
 let signupUser = async (req, res) => {
@@ -92,11 +93,12 @@ let postContribute = async (req, res) => {
                 RETURNING contributions`)
             let successfulContributionPost = {
                 contributionId: contributionId[0].postid, 
-                newContributionsArray: newContributionsArray[0]
+                // newContributionsArray: newContributionsArray[0]
             };
             let stringifiedSuccessfulContributionPost = JSON.stringify(successfulContributionPost);
             res.send(stringifiedSuccessfulContributionPost);
         } else {
+            console.log('updating');
             let newContributionsArray = await db.query(`UPDATE
                 users
                 SET contributions = array_cat(contributions, '{${contributionId[0].postid}}')
@@ -104,7 +106,7 @@ let postContribute = async (req, res) => {
                 RETURNING contributions`)
                 let successfulContributionPost = await {
                     contributionId: contributionId[0].postid, 
-                    newContributionsArray: newContributionsArray[0]
+                    // newContributionsArray: newContributionsArray[0]
                 };
                 let stringifiedSuccessfulContributionPost = JSON.stringify(successfulContributionPost);
                 res.send(stringifiedSuccessfulContributionPost);

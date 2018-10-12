@@ -9,7 +9,7 @@ let postContribute = async (contributeInformation, props) => {
     let contributionPostSuccessful = await (contributionPost.json());
     console.log(contributionPostSuccessful);
     contributeInformation.postId = contributionPostSuccessful.contributionId;
-    contributeInformation.userContributions = contributionPostSuccessful.newContributionsArray.contributions;
+    // contributeInformation.userContributions = contributionPostSuccessful.newContributionsArray.contributions;
     console.log(contributeInformation);
     props.dispatch({type: 'ADD_EXPERIENCE_CONTRIBUTION', newExperience: contributeInformation});
     // })
