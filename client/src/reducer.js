@@ -49,6 +49,7 @@ let reducer = (oldState, action) => {
             experiencesArray: action.experiencesArray
         }
     } else if (action.type === 'ADD_EXPERIENCE_CONTRIBUTION') {
+        console.log(action);
         return {
             ...oldState,
             experiencesArray: [
@@ -57,7 +58,7 @@ let reducer = (oldState, action) => {
             ],
             userContributions: [
                 ...oldState.userContributions,
-                action.userContributions
+                action.newExperience.userContributions
             ]
         }
     } else if (action.type === 'SET_USER_INFORMATION') {
