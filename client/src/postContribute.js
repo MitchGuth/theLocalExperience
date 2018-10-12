@@ -13,6 +13,7 @@ let postContribute = async (contributeInformation, props) => {
     console.log(contributeInformation);
     props.dispatch({type: 'ADD_EXPERIENCE_CONTRIBUTION', newExperience: contributeInformation});
     // })
+    props.history.push('/');
 };
 
 
