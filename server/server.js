@@ -93,7 +93,7 @@ let postContribute = async (req, res) => {
                 RETURNING contributions`)
             let successfulContributionPost = {
                 contributionId: contributionId[0].postid, 
-                // newContributionsArray: newContributionsArray[0]
+                newContributionsArray: newContributionsArray[0]
             };
             let stringifiedSuccessfulContributionPost = JSON.stringify(successfulContributionPost);
             res.send(stringifiedSuccessfulContributionPost);
@@ -106,7 +106,7 @@ let postContribute = async (req, res) => {
                 RETURNING contributions`)
                 let successfulContributionPost = await {
                     contributionId: contributionId[0].postid, 
-                    // newContributionsArray: newContributionsArray[0]
+                    newContributionsArray: newContributionsArray[0]
                 };
                 let stringifiedSuccessfulContributionPost = JSON.stringify(successfulContributionPost);
                 res.send(stringifiedSuccessfulContributionPost);
