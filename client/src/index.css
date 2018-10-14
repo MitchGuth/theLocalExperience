@@ -79,3 +79,34 @@ code {
   height: 20em;
   width: 20em;
 }
+
+.login-screen {
+  margin: 0 5% 5% 5%;
+}
+
+.login-header {
+  margin: 0 0 2.5% 0;
+}
+
+.login-form {
+  margin: 2.5% 0;
+}
+
+.login-header {
+  margin: 2.5% 0;
+}
+
+.login-email {
+  width: 30%;
+  margin: 2.5% 0;
+}
+
+.login-password {
+  display: block;
+  width: 30%;
+  margin: 2.5% 0;
+}
+
+.login-submit-button {
+  margin: 2.5% 0;
+}
