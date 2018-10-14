@@ -79,3 +79,15 @@ code {
   height: 20em;
   width: 20em;
 }
+
+.signup-screen {
+  margin: 0 5% 5% 5%;
+}
+
+.signup-screen-header {
+  margin: 2.5% 0;
+}
+
+.signup-header {
+  margin: 2.5% 0;
+}

@@ -11,7 +11,7 @@ let SignupForm = (props) =>
             clearUserInput(props, 'SIGNUP');
         }}
     >
-        <h3>Name</h3>
+        <h3 className="signup-header">Name</h3>
         <UserAuthenticationInput 
             type="text"
             stateInput={props.signupNameInput}
@@ -19,7 +19,7 @@ let SignupForm = (props) =>
             className="signup-name"
             {...props}
         />
-        <h3>Email</h3>
+        <h3 className="signup-header">Email</h3>
         <UserAuthenticationInput 
             type="email"
             stateInput={props.signupEmailInput}
@@ -27,7 +27,7 @@ let SignupForm = (props) =>
             className="signup-email"
             {...props}
         />
-        <h3>Password</h3>
+        <h3 className="signup-header">Password</h3>
         <UserAuthenticationInput 
             type="password"
             stateInput={props.signupPasswordInput}
