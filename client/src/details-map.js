@@ -12,7 +12,7 @@ class DetailsMap extends Component {
     initMap = (props) =>{
         let map = new window.google.maps.Map(document.getElementById('details-map'), {
             center: {lat: Number(this.props.latitude), lng: Number(this.props.longitude) },
-            zoom: 10
+            zoom: 15
         })
         let createMarkers = (props) =>{
             let contentString = '<div id="content" >' +
