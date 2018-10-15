@@ -257,6 +257,11 @@ code {
 
 @media only screen and (min-width: 768px) {
 
+  .nav-bar-welcome-header {
+    margin: 0.5% 0 1% 0;
+    font-size: 1.5em;
+  }
+
   .nav-bar-link {
     margin: 0;
     padding: 0.5% 0.2%;
