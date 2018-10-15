@@ -25,9 +25,13 @@ code {
 #map{
   height: 400px;
   margin: 2.5% 5%;
+  border-radius: 10px;
+  box-shadow: 3px 2px 10px black;
 }
 #details-map{
   height: 400px;
+  border-radius: 10px;
+  box-shadow: 3px 2px 10px black;
 }
 
 .info-window-header {
@@ -94,7 +98,8 @@ code {
 .experience-image {
   height: 100%;
   width: 100%;
-  box-shadow: 3px 2px 10px black;
+  box-shadow: 2px 1px 8px black;
+  border-radius: 10px;
 }
 
 .experience-title {
@@ -119,6 +124,8 @@ code {
   height: 100%;
   width: 100%;
   margin: 2.5% 0 5% 0;
+  box-shadow: 3px 2px 10px black;
+  border-radius: 10px;
 }
 
 .login-screen {
