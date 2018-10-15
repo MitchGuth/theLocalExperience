@@ -6,6 +6,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(175, 221, 233);
 }
 
 code {
@@ -14,22 +15,58 @@ code {
 }
 
 .nav-bar {
-  margin: 0.75em;
+  padding: 0.75em;
+  background-color: rgb(241, 91, 36);
+}
+
+.nav-bar-welcome-header {
+  display: inline;
 }
 
 .nav-bar-link {
   margin: 0 0.75em;
+  color: black;
+}
+
+.nav-bar-logged-in-container {
+  display: inline;
+}
+
+.logo-container {
+  height: 40%;
+  width: 100%;
+  padding: 2.5% 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.logo {
+  height: 40%;
+  width: 40%;
+  align-self: center;
 }
 
 #map{
-  height: 400px;
+  height: 350px;
+  margin: 2.5% 5%;
+  border-radius: 10px;
+  box-shadow: 3px 2px 10px black;
 }
 #details-map{
   height: 400px;
+  border-radius: 10px;
+  box-shadow: 3px 2px 10px black;
 }
+
+.info-window-header {
+  margin: 0.5em 0;
+  text-align: center;
+}
+
 .info-window-image {
-  height: 10em;
-  width: 10em;
+  height: 100%;
+  width: 100%;
 }
 
 .contribute-screen{
@@ -54,34 +91,106 @@ code {
 }
 
 .experience-container {
-  margin: 0 0.3em;
+  margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  align-items: center;
 }
 
 .experience-row {
   list-style: none;
-  margin: 1em 0;
+  margin: 2.5% 5%;
+  padding: 2%;
   border-style: solid;
+  border-width: thin;
+  border-radius: 10px;
+  /* width: 48%; */
+  box-sizing: border-box;
+  width: 90%;
+  box-shadow: 3px 2px 10px black;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 .experience-navlink {
   display: flex;
   text-decoration: none;
   color: black;
+  flex-direction: column;
+  padding: 2%;
 }
 
 .experience-image {
-  height: 10em;
-  width: 10em;
+  height: 100%;
+  width: 100%;
+  box-shadow: 2px 1px 8px black;
+  border-radius: 10px;
+}
+
+.experience-title {
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+.info-section-details-screen {
+  margin: 2.5% 5% 5% 5%;
+}
+
+.details-header {
+  margin: 2.5% 0;
+}
+
+.details-data {
+  margin: 2.5% 0;
+  padding-left: 5%;
 }
 
 .details-image {
-  height: 20em;
-  width: 20em;
+  height: 100%;
+  width: 100%;
+  margin: 2.5% 0 5% 0;
+  box-shadow: 3px 2px 10px black;
+  border-radius: 10px;
+}
+
+.login-screen {
+  margin: 0 5% 5% 5%;
+}
+
+.login-screen-header {
+  margin: 2.5% 0 5% 0;
+}
+
+.login-form {
+  margin: 2.5% 0;
+}
+
+.login-header {
+  margin: 2.5% 0;
+}
+
+.login-email {
+  width: 60%;
+  margin: 2.5% 0;
+}
+
+.login-password {
+  display: block;
+  width: 60%;
+  margin: 2.5% 0;
+}
+
+.login-submit-button {
+  margin: 2.5% 0;
 }
 
 .signup-screen {
   margin: 0 5% 5% 5%;
+}
+
+.signup-form {
+  margin: 2.5% 0;
 }
 
 .signup-screen-header {
@@ -90,4 +199,130 @@ code {
 
 .signup-header {
   margin: 2.5% 0;
+}
+
+.signup-name {
+  width: 60%;
+}
+
+.signup-email {
+  width: 60%;
+  margin: 2.5% 0;
+}
+
+.signup-password {
+  display: block;
+  width: 60%;
+  margin: 2.5% 0;
+}
+
+.signup-submit-button {
+  margin: 2.5% 0;
+}
+
+.logout-button {
+  background-color: transparent;
+  border-style: none;
+  text-decoration: underline;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+
+  .logo-container {
+    padding: 1.5% 0 0 0;
+  }
+
+  .logo {
+    height: 30%;
+    width: 30%;
+  }
+
+  #map{
+    margin: 2.5% 2% 1% 2%;
+  }
+
+  .experience-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .experience-row {
+    width: 46%;
+    margin: 2%;
+    padding: 1%;
+  }
+
+  .experience-navlink {
+    padding: 1%;
+  }
+
+  .details-header {
+    margin: 1% 0;
+  }
+
+  .details-data {
+    margin: 1% 0 1.5% 0;
+    padding-left: 2.5%;
+  }
+
+  .login-screen-header {
+    margin: 2.5% 0;
+  }
+
+  .login-header {
+    margin: 1% 0;
+  }
+
+  .login-email {
+    width: 30%;
+    margin: 1% 0;
+  }
+
+  .login-password {
+    width: 30%;
+    margin: 1% 0;
+  }
+
+  .signup-screen-header {
+    margin: 2.5% 0;
+  }
+  
+  .signup-header {
+    margin: 1% 0;
+  }
+
+  .signup-name {
+    width: 30%;
+    margin: 1% 0;
+  }
+
+  .signup-email {
+    width: 30%;
+    margin: 1% 0;
+  }
+
+  .signup-password {
+    width: 30%;
+    margin: 1% 0;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+
+  .logo-container {
+    padding: 0.5% 0 0 0;
+  }
+
+  .logo {
+    height: 20%;
+    width: 20%;
+  }
+
+  #map {
+    width: 60%;
+    margin: 1.5% 20% 0 20%;
+  }
 }

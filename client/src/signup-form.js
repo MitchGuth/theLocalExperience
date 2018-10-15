@@ -5,6 +5,7 @@ import clearUserInput from './clearUserInput';
 
 let SignupForm = (props) => 
     <form
+        className="signup-form"
         onSubmit={ () => {
             props.dispatch({type: 'SET_USEREMAIL', userEmail: props.signupEmailInput});
             signupUser(props);
@@ -35,7 +36,7 @@ let SignupForm = (props) =>
             className="signup-password"
             {...props}
         />
-        <input type="submit" value="Sign up" />
+        <input className="signup-submit-button" type="submit" value="Sign up" />
     </form>
 
 

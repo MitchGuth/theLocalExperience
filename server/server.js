@@ -132,6 +132,7 @@ const static = express.static;
 
 app.use(static('../client/build'));
 app.use('/uploads', static(__dirname + '/uploads'));
+app.use('/imgs', static(__dirname + '/imgs'));
 app.use(allowCORS);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
