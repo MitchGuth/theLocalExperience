@@ -121,6 +121,37 @@ code {
   margin: 2.5% 0 5% 0;
 }
 
+.login-screen {
+  margin: 0 5% 5% 5%;
+}
+
+.login-screen-header {
+  margin: 2.5% 0 5% 0;
+}
+
+.login-form {
+  margin: 2.5% 0;
+}
+
+.login-header {
+  margin: 2.5% 0;
+}
+
+.login-email {
+  width: 60%;
+  margin: 2.5% 0;
+}
+
+.login-password {
+  display: block;
+  width: 60%;
+  margin: 2.5% 0;
+}
+
+.login-submit-button {
+  margin: 2.5% 0;
+}
+
 @media only screen and (min-width: 768px) {
   #map{
     margin: 2%;
@@ -141,4 +172,21 @@ code {
     padding: 1%;
   }
 
+  .login-screen-header {
+    margin: 2.5% 0;
+  }
+
+  .login-header {
+    margin: 1% 0;
+  }
+
+  .login-email {
+    width: 30%;
+    margin: 1% 0;
+  }
+
+  .login-password {
+    width: 30%;
+    margin: 1% 0;
+  }
 }

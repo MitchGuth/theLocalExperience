@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 let LoginScreen = (props) => 
-    <div>
-        <h1>Enter login information below</h1>
+    <div className="login-screen">
+        <h2 className="login-screen-header">Enter login information below</h2>
         <LoginForm {...props} />
-        <p>Click signup below to create an account!</p>
+        <h3>Don't have an account? Click signup to create one!</h3>
         <NavLink to="/signup"><button>Signup</button></NavLink>
     </div>
 

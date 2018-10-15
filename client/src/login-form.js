@@ -5,6 +5,7 @@ import clearUserInput from './clearUserInput';
 
 let LoginForm = (props) =>
     <form
+        className="login-form"
         onSubmit={ (event) => {
             event.preventDefault();
             props.dispatch({type: 'SET_USEREMAIL', userEmail: props.loginEmailInput});
@@ -16,7 +17,7 @@ let LoginForm = (props) =>
             clearUserInput(props, 'LOGIN');
         }}
     >
-        <h3>Email</h3>
+        <h3 className="login-header">Email</h3>
         <UserAuthenticationInput 
             type="email"
             stateInput={props.loginEmailInput}
@@ -24,7 +25,7 @@ let LoginForm = (props) =>
             className="login-email"
             {...props}
         />
-        <h3>Password</h3>
+        <h3 className="login-header">Password</h3>
         <UserAuthenticationInput 
             type="password"
             stateInput={props.loginPasswordInput}
