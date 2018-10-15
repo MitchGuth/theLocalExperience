@@ -49,7 +49,7 @@ let reducer = (oldState, action) => {
             experiencesArray: action.experiencesArray
         }
     } else if (action.type === 'ADD_EXPERIENCE_CONTRIBUTION') {
-        console.log(action);
+        // console.log(action);
         return {
             ...oldState,
             experiencesArray: [

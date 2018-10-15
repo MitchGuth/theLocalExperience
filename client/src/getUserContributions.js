@@ -4,7 +4,7 @@ let getUserContributions = (props, userCredentials) => {
         return data.json();
     })
     .then(userContributions=> {
-        console.log(userContributions);
+        // console.log(userContributions);
         props.dispatch({type: 'SET_USER_CONTRIBUTIONS', userContributions: userContributions})
     })
 };
