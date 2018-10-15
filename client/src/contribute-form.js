@@ -40,6 +40,7 @@ let ContributeForm = (props) =>
             className="contribute-form"
             props={props.props}
             >
+            <p>Import Picture</p>
             <input 
                 onChange={ (event) => {
                     props.dispatch({type: 'UPDATE_FILEINPUT_INPUT', fileInput: event.target.files[0]})
@@ -54,7 +55,7 @@ let ContributeForm = (props) =>
                     props.dispatch({type: 'UPDATE_TITLE_INPUT', titleInput: value})
                 }}
                 className="contribute-title-input form-item"
-                placeholder="title"
+                placeholder="Write a title for your experience..."
                 value={props.titleInput}
             />
             <p>Description</p>
@@ -65,10 +66,10 @@ let ContributeForm = (props) =>
 
                 }}
                 className="contribute-description-input form-item" 
-                placeholder="description" 
+                placeholder="Write a brief description of your experience..." 
                 value={props.descriptionInput}
             />
-            <input className="contribute-submit-button form-item" type="submit" value="Submit" />
+            <input className="contribute-submit-button form-item" type="submit" value="Submit Experience" />
         </form>
     </div>
 
