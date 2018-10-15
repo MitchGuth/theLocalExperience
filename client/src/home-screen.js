@@ -5,6 +5,9 @@ import ExperiencesContainer from './experiences-container';
 
 let HomeScreen = (props) => {
     return <div>
+        <div className="logo-container">
+            <img className="logo" src={process.env.REACT_APP_API_HOST + '/imgs/the-local-experience-logo.png'} alt="The Local Experience"/>
+        </div>
         <MapRow {...props}/>
         <ExperiencesContainer {...props} experiences={props.experiencesArray}/>
     </div>
