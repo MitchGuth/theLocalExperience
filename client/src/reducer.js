@@ -72,6 +72,14 @@ let reducer = (oldState, action) => {
             userId: action.user.userid,
             userName: action.user.name
         }
+    } else if (action.type === 'LOGOUT_USER') {
+        return {
+            ...oldState,
+            userId: '',
+            userName: '',
+            userEmail: '',
+            userContributions: []
+        }
     } else {
         return {
             ...oldState
