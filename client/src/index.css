@@ -185,6 +185,41 @@ code {
   margin: 2.5% 0;
 }
 
+.signup-screen {
+  margin: 0 5% 5% 5%;
+}
+
+.signup-form {
+  margin: 2.5% 0;
+}
+
+.signup-screen-header {
+  margin: 2.5% 0;
+}
+
+.signup-header {
+  margin: 2.5% 0;
+}
+
+.signup-name {
+  width: 60%;
+}
+
+.signup-email {
+  width: 60%;
+  margin: 2.5% 0;
+}
+
+.signup-password {
+  display: block;
+  width: 60%;
+  margin: 2.5% 0;
+}
+
+.signup-submit-button {
+  margin: 2.5% 0;
+}
+
 .logout-button {
   background-color: transparent;
   border-style: none;
@@ -247,6 +282,29 @@ code {
   }
 
   .login-password {
+    width: 30%;
+    margin: 1% 0;
+  }
+
+  .signup-screen-header {
+    margin: 2.5% 0;
+  }
+  
+  .signup-header {
+    margin: 1% 0;
+  }
+
+  .signup-name {
+    width: 30%;
+    margin: 1% 0;
+  }
+
+  .signup-email {
+    width: 30%;
+    margin: 1% 0;
+  }
+
+  .signup-password {
     width: 30%;
     margin: 1% 0;
   }

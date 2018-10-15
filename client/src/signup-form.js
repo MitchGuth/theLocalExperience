@@ -5,13 +5,14 @@ import clearUserInput from './clearUserInput';
 
 let SignupForm = (props) => 
     <form
+        className="signup-form"
         onSubmit={ () => {
             props.dispatch({type: 'SET_USEREMAIL', userEmail: props.signupEmailInput});
             signupUser(props);
             clearUserInput(props, 'SIGNUP');
         }}
     >
-        <h3>Name</h3>
+        <h3 className="signup-header">Name</h3>
         <UserAuthenticationInput 
             type="text"
             stateInput={props.signupNameInput}
@@ -19,7 +20,7 @@ let SignupForm = (props) =>
             className="signup-name"
             {...props}
         />
-        <h3>Email</h3>
+        <h3 className="signup-header">Email</h3>
         <UserAuthenticationInput 
             type="email"
             stateInput={props.signupEmailInput}
@@ -27,7 +28,7 @@ let SignupForm = (props) =>
             className="signup-email"
             {...props}
         />
-        <h3>Password</h3>
+        <h3 className="signup-header">Password</h3>
         <UserAuthenticationInput 
             type="password"
             stateInput={props.signupPasswordInput}
@@ -35,7 +36,7 @@ let SignupForm = (props) =>
             className="signup-password"
             {...props}
         />
-        <input type="submit" value="Sign up" />
+        <input className="signup-submit-button" type="submit" value="Sign up" />
     </form>
 
 
