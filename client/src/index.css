@@ -125,8 +125,8 @@ code {
   margin: 0 5% 5% 5%;
 }
 
-.login-header {
-  margin: 0 0 2.5% 0;
+.login-screen-header {
+  margin: 2.5% 0 5% 0;
 }
 
 .login-form {
@@ -138,13 +138,13 @@ code {
 }
 
 .login-email {
-  width: 30%;
+  width: 60%;
   margin: 2.5% 0;
 }
 
 .login-password {
   display: block;
-  width: 30%;
+  width: 60%;
   margin: 2.5% 0;
 }
 
@@ -170,5 +170,23 @@ code {
 
   .experience-navlink {
     padding: 1%;
+  }
+
+  .login-screen-header {
+    margin: 2.5% 0;
+  }
+
+  .login-header {
+    margin: 1% 0;
+  }
+
+  .login-email {
+    width: 30%;
+    margin: 1% 0;
+  }
+
+  .login-password {
+    width: 30%;
+    margin: 1% 0;
   }
 }
