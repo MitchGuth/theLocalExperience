@@ -25,7 +25,7 @@ let NavBar = (props) =>
                     Log Out
                 </button>
             </div> :
-            <NavLink to="/login"> Login </NavLink>)}
+            <NavLink className="nav-bar-link" to="/login"> Login </NavLink>)}
     </div>
 
 let ConnectedNavBar = connect(state=> {
