@@ -81,7 +81,7 @@ let signupUser = async (req, res) => {
 let postContribute = async (req, res) => {
     let contributionId = await db.query(`INSERT INTO 
                 contributions (latitude, longitude, title, description, tags, userid, photourl, time)
-                VALUES ('${req.body.latitude}', '${req.body.longitude}', '${req.body.title}', '${req.body.description}', 'tags', '${req.body.userId || ''}', '${req.body.photoUrl}', '${req.body.time}')
+                VALUES ('${req.body.latitude}', '${req.body.longitude}', $token$${req.body.title}$token$, $token$${req.body.description}$token$, $token$${req.body.tags || ''}$token$, '${req.body.userId || ''}', '${req.body.photoUrl}', '${req.body.time}')
                 RETURNING postid`);
     if (req.body.userId !== '') {
         let contributionsArray = await db.one(`SELECT contributions FROM users WHERE userid = '${req.body.userId}'`);
