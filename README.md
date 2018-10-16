@@ -4,4 +4,5 @@ The Local Experience is a web app built in React that uses the Google Maps API a
 ## Anti-Social Social-Media
 The Local Experience is in a way an anti-social, social media platform where the content is user driven however there is not room for self glorification as the posts are anonymous. You can however see what experiences you have contributed to the platform to look back on your past experiences and revisit that moment or location as you would a journal entry. 
 
-
+## Authors
+Brandon Humphries && Mitch Guth
