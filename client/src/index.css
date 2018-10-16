@@ -183,7 +183,7 @@ code {
   text-decoration: none;
   color: black;
   flex-direction: column;
-  padding: 2%;
+  padding: 3%;
   box-sizing: border-box;
 }
 
@@ -301,6 +301,16 @@ code {
   cursor: pointer;
 }
 
+.contribute-title-input{
+  height: 4em;
+  width: 55%; 
+}
+
+.contribute-description-input{
+  height: 14em;
+  width: 60%;
+}
+
 @media only screen and (min-width: 768px) {
 
   .nav-bar-welcome-header {
@@ -352,15 +362,23 @@ code {
   .experience-row {
     width: 46%;
     margin: 2%;
-    padding: 2% 2% 8% 2%;
+    padding: 2%;
     justify-content: center;
     align-items: center;
     align-content: center;
     height: 23em;
   }
 
+  .experience-image-container {
+    height: 75%;
+  }
+
+  .experience-title {
+    font-size: 1.3em;
+  }
+
   .experience-navlink {
-    padding: 1%;
+    padding: 0;
   }
 
   .details-header {
@@ -429,13 +447,18 @@ code {
     width: 60%;
     margin: 1.5% 20% 0 20%;
   }
-}
-.contribute-title-input{
-  height: 4em;
-  width: 55%; 
-}
 
-.contribute-description-input{
-  height: 14em;
-  width: 60%;
+  .experience-row {
+    height: 25em;
+    padding: 1.5%;
+  }
+
+  .experience-image-container {
+    height: 80%;
+  }
+
+  .experience-title {
+    margin: 2% 0;
+  }
+
 }
