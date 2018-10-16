@@ -11,6 +11,8 @@ const pg = require('pg-promise')();
 const dbConfig = name;
 const db = pg(dbConfig);
 const jwt = require('jsonwebtoken');
+const sharp = require('sharp');
+const fs = require('fs');
 
 
 let storage = multer.diskStorage({
@@ -24,6 +26,43 @@ let storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+
+let resize = (x, y, fit) => {
+  return (req, res, next) => {
+    let resizeFile = (path) => {
+      return sharp(path)
+      .rotate()
+    //   .resize(x, y, {fit: fit || 'outside'})
+      .toBuffer()
+      .then((data) => {
+        fs.writeFile(path, data, err => {
+          if (err) throw err;
+        });
+      })
+    }
+    if (req.file || req.files) {
+      let promises = [];
+      if (req.file) {
+        let promise = resizeFile(req.file.path)
+        promises.push(promise);
+      }
+      if (req.files) {
+        Object.keys(req.files).forEach(key => {
+          req.files[key].forEach(file => {
+            let promise = resizeFile(file.path);
+            promises.push(promise);
+          })
+        })
+      }
+      Promise.all(promises)
+      .then(() => {
+        next();
+      });
+    } else {
+      next();
+    }
+  }
+};
 
 let createToken = (user) => {
     let token = jwt.sign(
@@ -163,7 +202,7 @@ app.get('/api/user/:id/contributions', checkToken, getUserContributions);
 app.get('/api/checktoken', checkToken, getUserInformation);
 app.post('/api/login', checkUser);
 app.post('/api/signup', signupUser);
-app.post('/api/postcontributephoto', upload.single('selectedFile'), (req, res)=> {
+app.post('/api/postcontributephoto', upload.single('selectedFile'), resize(2000, 2000), (req, res)=> {
     res.send(req.file.filename)
 });
 app.post('/api/postcontribute', postContribute);
