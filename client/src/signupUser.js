@@ -11,7 +11,6 @@ let signupUser = (props) => {
     })
     .then(message=> {
         if (message === 'Email already taken') {
-            // console.log('Email already taken!');
         } else {
             loginUser(props, message);
         }
