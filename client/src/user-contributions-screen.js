@@ -3,7 +3,7 @@ import ExperiencesContainer from './experiences-container';
 import { connect } from 'react-redux';
 
 let UserContributionsScreen = (props) => {
-    console.log(props);
+    // console.log(props);
     return <div>
         <ExperiencesContainer {...props} experiences={props.userContributions}/>
     </div>
