@@ -12,17 +12,13 @@ let ContributeForm = (props) =>
                 let formData = new FormData();
                 let date = new Date();
                 let time = date.toLocaleTimeString('en-US');
-                // console.log(time);
                 props.dispatch({type: 'SET_CONTRIBUTE', selectedFile: props.fileInput, contributeDescription: props.descriptionInput});
                 formData.append('selectedFile', props.fileInput);
                 navigator.geolocation.getCurrentPosition(function(position) {
                     let userLocationLatitude = (position.coords.latitude);
                     let userLocationLongitude = (position.coords.longitude);
-                    // console.log(userLocationLatitude);
-                    // console.log(userLocationLongitude);
                     postContributePhoto(formData)
                     .then(name=> {
-                        // console.log(props);
                         photoUrl = `/uploads/${name}`;
                         let contributeInformation = {
                             userId: props.userId,

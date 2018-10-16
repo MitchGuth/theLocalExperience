@@ -9,10 +9,5 @@ let ExperiencesContainer = (props) =>
     </ul>
 
 
-// let ConnectedExperiencesScreen = connect(state=> {
-//     return {
-//         experiencesArray: state.experiencesArray
-//     }
-// })(ExperiencesScreen);
 
 export default ExperiencesContainer;
