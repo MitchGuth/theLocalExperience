@@ -43,6 +43,16 @@ let reducer = (oldState, action) => {
             signupEmailInput: '',
             signupPasswordInput: ''
         }
+    } else if (action.type === 'CLEAR_CONTRIBUTE_INPUT') {
+        return {
+            ...oldState,
+            fileInput: '',
+            titleInput: '',
+            descriptionInput: '',
+            selectedFile: '',
+            contributeTitle: '',
+            contributeDescription: ''
+        }
     } else if (action.type === 'SET_EXPERIENCES_ARRAY') {
         return {
             ...oldState,
