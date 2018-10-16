@@ -1,6 +1,7 @@
 import React from 'react';
 import postContributePhoto from './postContributePhoto';
 import postContribute from './postContribute';
+import clearUserInput from './clearUserInput';
 
 let ContributeForm = (props) =>
     <div className="contribute-container">
@@ -34,6 +35,7 @@ let ContributeForm = (props) =>
                             time: time
                         };
                         postContribute(contributeInformation, props);
+                        clearUserInput(props, 'CONTRIBUTE');
                     })
                 })
             }}
