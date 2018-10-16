@@ -1,5 +1,8 @@
 let getUserContributions = (props, userCredentials) => {
-    fetch(`${process.env.REACT_APP_API_HOST}/api/user/${userCredentials.user.userid}/contributions`)
+    fetch(`${process.env.REACT_APP_API_HOST}/api/user/${userCredentials.user.userid}/contributions`, {
+        method: 'GET',
+        headers: { authorization: JSON.parse(localStorage.getItem('token'))}
+    })
     .then(data=> {
         return data.json();
     })

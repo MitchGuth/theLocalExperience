@@ -25,12 +25,13 @@ let storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-let createToken = user => 
-    jwt.sign(
-        { userId: user.id },
+let createToken = (user) => {
+    let token = jwt.sign(
+        { userId: user.userid },
         signature,
-        { expiresIn: '7d' }
-);
+        { expiresIn: '7d' })
+    return token;
+};
 
 let checkUser = (req, res) => {
     let credentials = req.body;
@@ -46,6 +47,58 @@ let checkUser = (req, res) => {
     })
 };
 
+// let checkToken = async (req, res, next) => {
+//     console.log('hi');
+//     console.log(req.headers.authorization);
+//     let parsedToken = JSON.parse(req.headers.authorization);
+//     // console.log(parsedToken);
+//     let { authorization: token } = parsedToken;
+//     console.log(token);
+//     let payload;
+//     try {
+//         payload = jwt.verify(token, signature);
+//     } catch(err) {
+//         console.log(err);
+//     }
+//     console.log('hello')
+//     if (payload) {
+//         let userId = payload.userid
+//         req.jwt = payload;
+//         console.log(userId);
+//         next();
+//     } else {
+//         console.log('no token');
+//         res.send('Woops! you do not have a token!');
+//     }
+// };
+
+let getUserInformation = async (req, res) => {
+    let userInformation = await db.one(`SELECT * FROM users WHERE userId = '${req.jwt.userId}'`);
+    console.log(userInformation);
+    res.send(JSON.stringify(userInformation));
+}
+
+let checkToken = (req, res, next) => {
+    let { authorization: token } = req.headers;
+    let payload;
+    try {
+        payload = jwt.verify(token, signature)
+        // console.log(payload);
+    } catch(err) {
+        console.log(err);
+    }
+    if (payload) {
+        // let { userId } = payload;
+        // console.log(req);
+        console.log(payload);
+        req.jwt = payload;
+        next();
+    } else {
+        res.send('You do not have a token!');
+    }
+};
+
+
 let getExperiences = (req, res) => {
     db.query(`SELECT * FROM contributions`)
     .then(results=> {
@@ -54,7 +107,6 @@ let getExperiences = (req, res) => {
 };
 
 let getUserContributions = async (req, res) => {
-    console.log(req.params.id);
     let contributionsArray = await db.query(`SELECT * FROM contributions WHERE userid = '${req.params.id}'`)
     res.send(JSON.stringify(contributionsArray));
 }
@@ -123,7 +175,7 @@ let postContribute = async (req, res) => {
 let allowCORS = (req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
+    res.header('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token, authorization');
     next();
 };
 
@@ -137,7 +189,8 @@ app.use(allowCORS);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/api/getexperiences', getExperiences);
-app.get('/api/user/:id/contributions', getUserContributions)
+app.get('/api/user/:id/contributions', checkToken, getUserContributions);
+app.get('/api/checktoken', checkToken, getUserInformation);
 app.post('/api/login', checkUser);
 app.post('/api/signup', signupUser);
 app.post('/api/postcontributephoto', upload.single('selectedFile'), (req, res)=> {
