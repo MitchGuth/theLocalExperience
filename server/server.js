@@ -47,31 +47,6 @@ let checkUser = (req, res) => {
     })
 };
 
-// let checkToken = async (req, res, next) => {
-//     console.log('hi');
-//     console.log(req.headers.authorization);
-//     let parsedToken = JSON.parse(req.headers.authorization);
-//     // console.log(parsedToken);
-//     let { authorization: token } = parsedToken;
-//     console.log(token);
-//     let payload;
-//     try {
-//         payload = jwt.verify(token, signature);
-//     } catch(err) {
-//         console.log(err);
-//     }
-//     console.log('hello')
-//     if (payload) {
-//         let userId = payload.userid
-//         req.jwt = payload;
-//         console.log(userId);
-//         next();
-//     } else {
-//         console.log('no token');
-//         res.send('Woops! you do not have a token!');
-//     }
-// };
-
 let getUserInformation = async (req, res) => {
     let userInformation = await db.one(`SELECT * FROM users WHERE userId = '${req.jwt.userId}'`);
     console.log(userInformation);
@@ -83,14 +58,10 @@ let checkToken = (req, res, next) => {
     let payload;
     try {
         payload = jwt.verify(token, signature)
-        // console.log(payload);
     } catch(err) {
         console.log(err);
     }
     if (payload) {
-        // let { userId } = payload;
-        // console.log(req);
-        console.log(payload);
         req.jwt = payload;
         next();
     } else {

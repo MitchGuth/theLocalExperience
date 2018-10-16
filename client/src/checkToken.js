@@ -16,7 +16,6 @@ let checkAuthentication = (props) => {
             console.log(data);
             props.dispatch({type: 'SET_USER_INFORMATION', user: {userid: data.userid, name: data.name}})
         })
-        console.log(token);
     } else {
         console.log('no token');
     }

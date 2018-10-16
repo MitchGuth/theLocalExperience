@@ -10,7 +10,6 @@ let loginUser = (props, userInformation) => {
         return results.json()
     })
     .then(userCredentials=> {
-        console.log(userCredentials);
         localStorage.setItem('token', JSON.stringify(userCredentials.token));
         props.history.push('/');
         props.dispatch({type: 'SET_USER_INFORMATION', user: userCredentials.user})
