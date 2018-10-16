@@ -1,14 +1,6 @@
 import React,{ Component } from 'react';
 import './index.css';
 
-// let markerPoints = [
-//     {title: 'Krog Street Tunnel', latitude: 33.7530, longitude: -84.3636, postId: 1},
-//     {title: 'Ponce City Market', latitude: 33.7719, longitude: -84.3665, postId: 2},
-//     {title: 'Logan Farm Park', latitude: 34.0693, longitude: -84.6734, postId: 3},
-//     {title: 'Lake View Park', latitude: 45.9462, longitude: -86.2364, postId: 4}
-// ]
-
-
 class Map extends Component {
     constructor (props) {
         super(props);
