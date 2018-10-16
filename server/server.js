@@ -77,8 +77,7 @@ let getExperiences = (req, res) => {
 };
 
 let getUserContributions = async (req, res) => {
-    let contributionsArray = await db.query(`SELECT * FROM contributions WHERE userid = '${req.params.id}'`)
-    console.log(contributionsArray);
+    let contributionsArray = await db.query(`SELECT * FROM contributions WHERE userid = '${req.params.id}'`);
     res.send(JSON.stringify(contributionsArray));
 }
 
