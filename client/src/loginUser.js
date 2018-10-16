@@ -13,7 +13,8 @@ let loginUser = (props, userInformation) => {
         localStorage.setItem('token', JSON.stringify(userCredentials.token));
         props.history.push('/');
         props.dispatch({type: 'SET_USER_INFORMATION', user: userCredentials.user})
-        getUserContributions(props, userCredentials);
+        let userId = userCredentials.user.userid;
+        getUserContributions(props, userId);
     })
 };
 

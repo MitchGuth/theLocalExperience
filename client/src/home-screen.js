@@ -2,7 +2,7 @@ import React from 'react';
 import MapRow from './map-row';
 import { connect } from 'react-redux';
 import ExperiencesContainer from './experiences-container';
-import checkAuthentication from './checkToken'
+import checkAuthentication from './checkAuthentication'
 
 let HomeScreen = (props) => {
     checkAuthentication(props);

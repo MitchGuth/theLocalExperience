@@ -49,7 +49,6 @@ let checkUser = (req, res) => {
 
 let getUserInformation = async (req, res) => {
     let userInformation = await db.one(`SELECT * FROM users WHERE userId = '${req.jwt.userId}'`);
-    console.log(userInformation);
     res.send(JSON.stringify(userInformation));
 }
 
@@ -79,6 +78,7 @@ let getExperiences = (req, res) => {
 
 let getUserContributions = async (req, res) => {
     let contributionsArray = await db.query(`SELECT * FROM contributions WHERE userid = '${req.params.id}'`)
+    console.log(contributionsArray);
     res.send(JSON.stringify(contributionsArray));
 }
 

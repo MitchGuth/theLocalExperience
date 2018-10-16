@@ -1,3 +1,5 @@
+import getUserContributions from "./getUserContributions";
+
 let checkAuthentication = (props) => {
     if (localStorage.getItem('token')) {
         let token = localStorage.getItem('token');
@@ -13,8 +15,8 @@ let checkAuthentication = (props) => {
             return result.json();
         })
         .then(data=> {
-            console.log(data);
             props.dispatch({type: 'SET_USER_INFORMATION', user: {userid: data.userid, name: data.name}})
+            getUserContributions(props, data.userid)
         })
     } else {
         console.log('no token');
