@@ -1,9 +1,10 @@
 import React from 'react';
 import ExperiencesContainer from './experiences-container';
 import { connect } from 'react-redux';
+import checkAuthentication from './checkAuthentication';
 
 let UserContributionsScreen = (props) => {
-    // console.log(props);
+    checkAuthentication(props);
     return <div>
         <ExperiencesContainer {...props} experiences={props.userContributions}/>
     </div>

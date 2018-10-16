@@ -1,11 +1,14 @@
 import React from 'react';
 import ContributeForm from './contribute-form.js';
 import { connect } from 'react-redux';
+import checkAuthentication from './checkAuthentication.js';
 
-let ContributeScreen = (props) => 
-    <div className="contribute-screen">
+let ContributeScreen = (props) => {
+    checkAuthentication(props);
+    return <div className="contribute-screen">
         <ContributeForm {...props}/>
     </div>
+}
 
 let ConnectedContributeScreen = connect(state=> {
     return {

@@ -26,7 +26,6 @@ class Map extends Component {
             zoom: 10
         })
         let createMarkers = (props) =>{
-            // console.log(this.props);
             for (let i = 0; i < this.props.experiencesArray.length; i++){
                 let contentString = '<div id="content" >' +
                     `<a class="info-window-anchor" href='${`/#/details/${this.props.experiencesArray[i].postid}`}'>` +   
