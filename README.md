@@ -18,24 +18,12 @@ Queries were made to the database using PostgreSQL. These queries included selec
 
 ## Deployment
 This app was deployed using an AWS EC2.
-<p align="center">
-  <img src="AWS Logo" width="75">
- </p>
 
 ## Built With
 - React / Redux
 - Node.js / Express
 - HTML / CSS / JavaScript
 - Google Maps API
-<p align="center">
-  <img src="technology images" width="75">
-  <img src="technology images" width="75">
-  <img src="technology images" width="75">
-  <img src="technology images" width="75">
-  <img src="technology images" width="75">
-  <img src="technology images" width="75">
-  <img src="technology images" width="75">
- </p>
 
 ## Authors
 Brandon Humphries && Mitch Guth
