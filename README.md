@@ -21,7 +21,7 @@ This was our first time incorporating user file upload functionality. We utilize
 ## Deployment
 This app was deployed using an AWS EC2.
 
-## Issues we faced:
+## Issues we faced
 Images with a portrait orientation would be displayed in landscape orientation in the browser. We utilized the Sharp NPM on the back-end to automatically orient the image based on the intrinsic EXIF data of the image.
 
 ## Built With
