@@ -18,7 +18,7 @@ Queries were made to the database using PostgreSQL. These queries included selec
 
 ### Multer
 
-This was our first time incorporating user file upload functionality. We utilized the Multer NPM for file uploads. On the front-end, the file is sent to the back-end in a Form Data object via a Post request. On the back-end, we designated the directory for which the files should be saved to and we updated the name of the file to a randomized string. The file is stored in the designated directory and the file name is sent back to the front-end so that an URL can be attached to the contribution that will be posted.
+This was our first time incorporating user file upload functionality. We utilized the Multer NPM for file uploads. On the front-end, the file is sent to the back-end in a Form Data object via a Post request. On the back-end, we designated the directory for which the files should be saved to and we updated the name of the file to a randomized string. The file is stored in the designated directory and the file name is sent back to the front-end so that an URL for the photo can be attached to the contribution that will be posted to the database.
 
 ## Deployment
 This app was deployed using an AWS EC2.
