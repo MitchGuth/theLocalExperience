@@ -14,7 +14,7 @@ In order to have a working version of this application you will need the followi
 
 Our database currently has two tables. The User table contains the user’s login credentials (email and password), along with their name and an array of their contributions. The Contributions table contains information regarding the experience contributions. This information includes the experience location coordinates, the title, the description, the User ID (if posted by a logged in user), the URL for the uploaded photo, and the time. 
 
-Queries were made to the database using PostgresQL. These queries included selecting all of the entries in the contributions table, inserting experience contributions as new entries, and updating a user’s array of contributions. We utilized async functions and promises to work with the returned data from our database queries.
+Queries were made to the database using PostgreSQL. These queries included selecting all of the entries in the contributions table, inserting experience contributions as new entries, and updating a user’s array of contributions. We utilized async functions and promises to work with the returned data from our database queries.
 
 ## Deployment
 This app was deployed using an AWS EC2.
