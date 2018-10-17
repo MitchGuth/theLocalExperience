@@ -16,6 +16,10 @@ Our database currently has two tables. The User table contains the user’s logi
 
 Queries were made to the database using PostgreSQL. These queries included selecting all of the entries in the contributions table, inserting experience contributions as new entries, and updating a user’s array of contributions. We utilized async functions and promises to work with the returned data from our database queries.
 
+### Multer
+
+This was our first time incorporating user file upload functionality. We utilized the Multer NPM for file uploads. On the front-end, the file is sent to the back-end in a Form Data object via a Post request. On the back-end, we designated the directory for which the files should be saved to and we updated the name of the file to a randomized string. The file is stored in the designated directory and the file name is sent back to the front-end so that an URL can be attached to the contribution that will be posted.
+
 ## Deployment
 This app was deployed using an AWS EC2.
 
