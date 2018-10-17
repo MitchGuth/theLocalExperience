@@ -11,17 +11,18 @@ In order to have a working version of this application you will need the followi
 - Obtain API key for Google Maps API
 
 ### PostgreSQL
-
 Our database currently has two tables. The User table contains the user’s login credentials (email and password), along with their name and an array of their contributions. The Contributions table contains information regarding the experience contributions. This information includes the experience location coordinates, the title, the description, the User ID (if posted by a logged in user), the URL for the uploaded photo, and the time. 
 
 Queries were made to the database using PostgreSQL. These queries included selecting all of the entries in the contributions table, inserting experience contributions as new entries, and updating a user’s array of contributions. We utilized async functions and promises to work with the returned data from our database queries.
 
 ### Multer
-
 This was our first time incorporating user file upload functionality. We utilized the Multer NPM for file uploads. On the front-end, the file is sent to the back-end in a Form Data object via a Post request. On the back-end, we designated the directory for which the files should be saved to and we updated the name of the file to a randomized string. The file is stored in the designated directory and the file name is sent back to the front-end so that an URL for the photo can be attached to the contribution that will be posted to the database.
 
 ## Deployment
 This app was deployed using an AWS EC2.
+
+## Issues we faced:
+Images with a portrait orientation would be displayed in landscape orientation in the browser. We utilized the Sharp NPM on the back-end to automatically orient the image based on the intrinsic EXIF data of the image.
 
 ## Built With
 - React / Redux
