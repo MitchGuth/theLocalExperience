@@ -6,7 +6,8 @@ import clearUserInput from './clearUserInput';
 let SignupForm = (props) => 
     <form
         className="signup-form"
-        onSubmit={ () => {
+        onSubmit={ (event) => {
+            event.preventDefault();
             props.dispatch({type: 'SET_USEREMAIL', userEmail: props.signupEmailInput});
             signupUser(props);
             clearUserInput(props, 'SIGNUP');
