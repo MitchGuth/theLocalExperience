@@ -45,6 +45,7 @@ let ContributeForm = (props) =>
                 }}
                 className="contribute-choose-file-button form-item" 
                 type="file"
+                required
             />
             <p>Title</p>
             <textarea
@@ -55,6 +56,7 @@ let ContributeForm = (props) =>
                 className="contribute-title-input form-item"
                 placeholder="Write a title for your experience..."
                 value={props.titleInput}
+                required
             />
             <p>Description</p>
             <textarea 
@@ -66,6 +68,7 @@ let ContributeForm = (props) =>
                 className="contribute-description-input form-item" 
                 placeholder="Write a brief description of your experience..." 
                 value={props.descriptionInput}
+                required
             />
             <input className="contribute-submit-button form-item" type="submit" value="Submit Experience" />
         </form>
