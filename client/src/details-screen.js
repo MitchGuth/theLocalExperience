@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import DetailRow from './detail-row';
 
 let DetailsScreen = (props) => {
+    window.scrollTo(0, 0)
     return <div className="info-section-details-screen" >
             <DetailRow 
                 experience={props.experiencesArray.find(experience=>
