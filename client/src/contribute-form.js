@@ -45,6 +45,7 @@ let ContributeForm = (props) =>
                 }}
                 className="contribute-choose-file-button form-item" 
                 type="file"
+                accept="image/*"
                 required
             />
             <p>Title</p>
