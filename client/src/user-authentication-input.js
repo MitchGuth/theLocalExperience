@@ -9,6 +9,7 @@ let UserAuthenticationInput = (props) =>
         }}
         type={props.type}
         value={props.stateInput}
+        required
     />
 
 export default UserAuthenticationInput;
