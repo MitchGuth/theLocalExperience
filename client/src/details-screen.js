@@ -1,14 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DetailRow from './detail-row';
+import NavBar from './nav-bar';
 
 let DetailsScreen = (props) => {
     window.scrollTo(0, 0)
-    return <div className="info-section-details-screen" >
-            <DetailRow 
-                experience={props.experiencesArray.find(experience=>
-                (props.match.url === `/details/${experience.postid}`))} 
-            />
+    return <div>
+            <NavBar {...props}/>
+            <div className="info-section-details-screen" >
+                <DetailRow 
+                    experience={props.experiencesArray.find(experience=>
+                    (props.match.url === `/details/${experience.postid}`))} 
+                />
+            </div>
         </div>
 }
 

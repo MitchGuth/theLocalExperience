@@ -15,9 +15,11 @@ let NavBar = (props) =>
                     <button
                         className="logout-button nav-bar-link"
                         onClick={ (event) => {
+                            console.log(props);
                             event.preventDefault();
                             localStorage.removeItem('token');
-                            props.dispatch({type: 'LOGOUT_USER' })
+                            props.dispatch({type: 'LOGOUT_USER' });
+                            props.history.push('/');
                         }}
                         >Log Out
                     </button>

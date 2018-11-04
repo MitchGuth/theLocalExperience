@@ -3,10 +3,12 @@ import MapRow from './map-row';
 import { connect } from 'react-redux';
 import ExperiencesContainer from './experiences-container';
 import checkAuthentication from './checkAuthentication'
+import NavBar from './nav-bar';
 
 let HomeScreen = (props) => {
     checkAuthentication(props);
     return <div>
+        <NavBar {...props}/>
         <div className="logo-container">
             <img className="logo" src={process.env.REACT_APP_API_HOST + '/imgs/the-local-experience-logo.png'} alt="The Local Experience"/>
         </div>
