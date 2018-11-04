@@ -11,7 +11,6 @@ import UserContributionsScreen from './user-contributions-screen.js';
 let Router = () =>
     <HashRouter>
         <div className="router">
-            {/* <NavBar/> */}
             <Route exact path="/" component={HomeScreen} />
             <Route exact path="/login" component={LoginScreen} />
             <Route exact path="/signup" component={SignupScreen} />
