@@ -2,10 +2,12 @@ import React from 'react';
 import ContributeForm from './contribute-form.js';
 import { connect } from 'react-redux';
 import checkAuthentication from './checkAuthentication.js';
+import NavBar from './nav-bar.js';
 
 let ContributeScreen = (props) => {
     checkAuthentication(props);
     return <div className="contribute-screen">
+        <NavBar {...props}/>
         <ContributeForm {...props}/>
     </div>
 }
